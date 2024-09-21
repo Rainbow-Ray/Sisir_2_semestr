@@ -39,14 +39,33 @@ namespace Sisir
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            Form addWorkerForm = new AddWorkerForm();
-            addWorkerForm.ShowDialog();
+            dataGridViewWorkers.Visible = false;
+            groupBoxAddForm.Visible = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Form info = new InfoWorkerForm();
             info.ShowDialog();
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OkButtonForm_Click(object sender, EventArgs e)
+        {
+            dataGridViewWorkers.Visible = true;
+            groupBoxAddForm.Visible = false;
+
+        }
+
+        private void CancelButoonForm_Click(object sender, EventArgs e)
+        {
+            dataGridViewWorkers.Visible = true;
+            groupBoxAddForm.Visible = false;
+
         }
     }
 }
