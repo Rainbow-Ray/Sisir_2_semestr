@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Sisir
 {
-    public partial class WorkersForm : Form
+    public partial class WorkersForm : Form, ISprav
     {
         public WorkersForm()
         {
@@ -39,14 +39,8 @@ namespace Sisir
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            dataGridViewWorkers.Visible = false;
-            groupBoxAddForm.Visible = true;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Form info = new InfoWorkerForm();
-            info.ShowDialog();
+            ShowAddForm();
+            AddEditDelButtonsDisable();
         }
 
         private void label14_Click(object sender, EventArgs e)
@@ -56,16 +50,47 @@ namespace Sisir
 
         private void OkButtonForm_Click(object sender, EventArgs e)
         {
-            dataGridViewWorkers.Visible = true;
-            groupBoxAddForm.Visible = false;
+            AddFormOkay();
+            AddEditDelButtonsEnable();
 
         }
 
         private void CancelButoonForm_Click(object sender, EventArgs e)
         {
+            AddFormCancel();
+            AddEditDelButtonsEnable();
+        }
+
+        public void AddEditDelButtonsEnable()
+        {
+            AddButton.Enabled = true;
+            EditButton.Enabled = true;
+            DeleteButton.Enabled = true;
+        }
+
+        public void AddEditDelButtonsDisable()
+        {
+            AddButton.Enabled = false;
+            EditButton.Enabled = false;
+            DeleteButton.Enabled = false;
+        }
+
+        public void ShowAddForm()
+        {
+            dataGridViewWorkers.Visible = false;
+            groupBoxAddForm.Visible = true;
+        }
+
+        public void AddFormOkay()
+        {
             dataGridViewWorkers.Visible = true;
             groupBoxAddForm.Visible = false;
+        }
 
+        public void AddFormCancel()
+        {
+            dataGridViewWorkers.Visible = true;
+            groupBoxAddForm.Visible = false;
         }
     }
 }

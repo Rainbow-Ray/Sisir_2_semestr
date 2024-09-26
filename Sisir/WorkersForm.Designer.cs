@@ -29,24 +29,13 @@
         private void InitializeComponent()
         {
             this.dataGridViewWorkers = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.AddButton = new System.Windows.Forms.Button();
             this.EditButton = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBoxAddForm = new System.Windows.Forms.GroupBox();
+            this.OkButtonForm = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label29 = new System.Windows.Forms.Label();
@@ -59,8 +48,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -76,12 +69,24 @@
             this.label26 = new System.Windows.Forms.Label();
             this.textBox21 = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.CancelButoonForm = new System.Windows.Forms.Button();
-            this.OkButtonForm = new System.Windows.Forms.Button();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWorkers)).BeginInit();
             this.groupBoxAddForm.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -100,102 +105,28 @@
             this.Column1,
             this.Column2,
             this.Column3,
-            this.Column7,
             this.Column8,
             this.Column9,
-            this.Column4,
+            this.Column7,
             this.Column5,
             this.Column6,
-            this.Column27});
+            this.Column4,
+            this.Column11,
+            this.Column12,
+            this.Column10,
+            this.Column13,
+            this.Column14,
+            this.Column15,
+            this.Column16});
             this.dataGridViewWorkers.Location = new System.Drawing.Point(17, 45);
             this.dataGridViewWorkers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewWorkers.Name = "dataGridViewWorkers";
             this.dataGridViewWorkers.ReadOnly = true;
             this.dataGridViewWorkers.RowHeadersWidth = 51;
             this.dataGridViewWorkers.RowTemplate.Height = 24;
-            this.dataGridViewWorkers.Size = new System.Drawing.Size(793, 557);
+            this.dataGridViewWorkers.Size = new System.Drawing.Size(786, 557);
             this.dataGridViewWorkers.TabIndex = 0;
             this.dataGridViewWorkers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Имя";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 62;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Фамилия";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 95;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Отчество";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 99;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Отдел";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Width = 77;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Должность";
-            this.Column8.MinimumWidth = 6;
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.Width = 107;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Уровень квалификации";
-            this.Column9.MinimumWidth = 6;
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            this.Column9.Width = 192;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Номер телефона";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 148;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Email";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 70;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Ник в Telegram";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 134;
-            // 
-            // Column27
-            // 
-            this.Column27.HeaderText = "День рождения";
-            this.Column27.MinimumWidth = 6;
-            this.Column27.Name = "Column27";
-            this.Column27.ReadOnly = true;
-            this.Column27.Width = 135;
             // 
             // label1
             // 
@@ -211,7 +142,7 @@
             // AddButton
             // 
             this.AddButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddButton.Location = new System.Drawing.Point(826, 45);
+            this.AddButton.Location = new System.Drawing.Point(809, 45);
             this.AddButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(163, 31);
@@ -223,7 +154,7 @@
             // EditButton
             // 
             this.EditButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.EditButton.Location = new System.Drawing.Point(826, 80);
+            this.EditButton.Location = new System.Drawing.Point(809, 80);
             this.EditButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.EditButton.Name = "EditButton";
             this.EditButton.Size = new System.Drawing.Size(163, 31);
@@ -235,7 +166,7 @@
             // DeleteButton
             // 
             this.DeleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.DeleteButton.Location = new System.Drawing.Point(826, 214);
+            this.DeleteButton.Location = new System.Drawing.Point(809, 157);
             this.DeleteButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(163, 31);
@@ -243,18 +174,6 @@
             this.DeleteButton.Text = "Удалить запись";
             this.DeleteButton.UseVisualStyleBackColor = true;
             this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(826, 115);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(163, 66);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Посмотреть все сведения";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBoxAddForm
             // 
@@ -271,30 +190,31 @@
             this.groupBoxAddForm.Text = "Форма добавления нового сотрудника";
             this.groupBoxAddForm.Visible = false;
             // 
+            // OkButtonForm
+            // 
+            this.OkButtonForm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.OkButtonForm.Location = new System.Drawing.Point(429, 468);
+            this.OkButtonForm.Name = "OkButtonForm";
+            this.OkButtonForm.Size = new System.Drawing.Size(124, 31);
+            this.OkButtonForm.TabIndex = 27;
+            this.OkButtonForm.Text = "Ок";
+            this.OkButtonForm.UseVisualStyleBackColor = true;
+            this.OkButtonForm.Click += new System.EventHandler(this.OkButtonForm_Click);
+            // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.listBox1);
+            this.groupBox4.Controls.Add(this.comboBox3);
             this.groupBox4.Controls.Add(this.comboBox2);
             this.groupBox4.Controls.Add(this.comboBox1);
             this.groupBox4.Controls.Add(this.label29);
             this.groupBox4.Controls.Add(this.label30);
             this.groupBox4.Controls.Add(this.label31);
-            this.groupBox4.Location = new System.Drawing.Point(327, 193);
+            this.groupBox4.Location = new System.Drawing.Point(327, 185);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(337, 253);
+            this.groupBox4.Size = new System.Drawing.Size(337, 261);
             this.groupBox4.TabIndex = 26;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Рабочая информация";
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(4, 127);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.listBox1.Size = new System.Drawing.Size(320, 68);
-            this.listBox1.TabIndex = 21;
             // 
             // comboBox2
             // 
@@ -418,12 +338,36 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(100, 22);
             this.dateTimePicker1.TabIndex = 15;
             // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(9, 345);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(227, 22);
+            this.textBox10.TabIndex = 16;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(10, 326);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(134, 16);
+            this.label14.TabIndex = 15;
+            this.label14.Text = "Адрес регистрации";
+            this.label14.Click += new System.EventHandler(this.label14_Click);
+            // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(8, 37);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(152, 22);
             this.textBox2.TabIndex = 5;
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(9, 389);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(227, 22);
+            this.textBox11.TabIndex = 14;
             // 
             // label8
             // 
@@ -433,6 +377,15 @@
             this.label8.Size = new System.Drawing.Size(156, 16);
             this.label8.TabIndex = 14;
             this.label8.Text = "Дата выдачи паспорта";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(10, 370);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(226, 16);
+            this.label15.TabIndex = 13;
+            this.label15.Text = "Адрес фактического проживания";
             // 
             // label4
             // 
@@ -508,7 +461,7 @@
             this.groupBox2.Controls.Add(this.label26);
             this.groupBox2.Controls.Add(this.textBox21);
             this.groupBox2.Controls.Add(this.label27);
-            this.groupBox2.Location = new System.Drawing.Point(327, 29);
+            this.groupBox2.Location = new System.Drawing.Point(327, 21);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(230, 158);
             this.groupBox2.TabIndex = 24;
@@ -563,39 +516,6 @@
             this.label27.TabIndex = 8;
             this.label27.Text = "Email";
             // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(9, 345);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(227, 22);
-            this.textBox10.TabIndex = 16;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(10, 326);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(134, 16);
-            this.label14.TabIndex = 15;
-            this.label14.Text = "Адрес регистрации";
-            this.label14.Click += new System.EventHandler(this.label14_Click);
-            // 
-            // textBox11
-            // 
-            this.textBox11.Location = new System.Drawing.Point(9, 389);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(227, 22);
-            this.textBox11.TabIndex = 14;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(10, 370);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(226, 16);
-            this.label15.TabIndex = 13;
-            this.label15.Text = "Адрес фактического проживания";
-            // 
             // CancelButoonForm
             // 
             this.CancelButoonForm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -607,24 +527,148 @@
             this.CancelButoonForm.UseVisualStyleBackColor = true;
             this.CancelButoonForm.Click += new System.EventHandler(this.CancelButoonForm_Click);
             // 
-            // OkButtonForm
+            // comboBox3
             // 
-            this.OkButtonForm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.OkButtonForm.Location = new System.Drawing.Point(429, 468);
-            this.OkButtonForm.Name = "OkButtonForm";
-            this.OkButtonForm.Size = new System.Drawing.Size(124, 31);
-            this.OkButtonForm.TabIndex = 27;
-            this.OkButtonForm.Text = "Ок";
-            this.OkButtonForm.UseVisualStyleBackColor = true;
-            this.OkButtonForm.Click += new System.EventHandler(this.OkButtonForm_Click);
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(8, 129);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(152, 24);
+            this.comboBox3.TabIndex = 23;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Имя";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 62;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Фамилия";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 95;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Отчество";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 99;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Должность";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Width = 107;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Уровень квалификации";
+            this.Column9.MinimumWidth = 6;
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Width = 192;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Отдел";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Width = 77;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Email";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 70;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Ник в Telegram";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 134;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Номер телефона";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 148;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "Номер паспорта";
+            this.Column11.MinimumWidth = 6;
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            this.Column11.Width = 144;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "Серия паспорта";
+            this.Column12.MinimumWidth = 6;
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            this.Column12.Width = 141;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Дата рождения";
+            this.Column10.MinimumWidth = 6;
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Width = 135;
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "Кем выдан";
+            this.Column13.MinimumWidth = 6;
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            this.Column13.Width = 105;
+            // 
+            // Column14
+            // 
+            this.Column14.HeaderText = "Дата выдачи паспорта";
+            this.Column14.MinimumWidth = 6;
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
+            this.Column14.Width = 185;
+            // 
+            // Column15
+            // 
+            this.Column15.HeaderText = "Адрес прописки";
+            this.Column15.MinimumWidth = 6;
+            this.Column15.Name = "Column15";
+            this.Column15.ReadOnly = true;
+            this.Column15.Width = 141;
+            // 
+            // Column16
+            // 
+            this.Column16.HeaderText = "Адрес факт. проживания";
+            this.Column16.MinimumWidth = 6;
+            this.Column16.Name = "Column16";
+            this.Column16.ReadOnly = true;
+            this.Column16.Width = 198;
             // 
             // WorkersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1001, 613);
+            this.ClientSize = new System.Drawing.Size(984, 613);
             this.Controls.Add(this.groupBoxAddForm);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.EditButton);
             this.Controls.Add(this.AddButton);
@@ -633,7 +677,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MinimumSize = new System.Drawing.Size(461, 605);
             this.Name = "WorkersForm";
-            this.Text = "Сотрудники";
+            this.Text = "Справочник сотрудников";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWorkers)).EndInit();
             this.groupBoxAddForm.ResumeLayout(false);
@@ -655,20 +699,8 @@
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Button EditButton;
         private System.Windows.Forms.Button DeleteButton;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column27;
         private System.Windows.Forms.GroupBox groupBoxAddForm;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label29;
@@ -704,6 +736,23 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button CancelButoonForm;
         private System.Windows.Forms.Button OkButtonForm;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
     }
 }
 

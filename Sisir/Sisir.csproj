@@ -58,6 +58,19 @@
     <Compile Include="InfoWorkerForm.Designer.cs">
       <DependentUpon>InfoWorkerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ISprav.cs" />
+    <Compile Include="JobPosotionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JobPosotionForm.Designer.cs">
+      <DependentUpon>JobPosotionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QualificationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QualificationForm.Designer.cs">
+      <DependentUpon>QualificationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WorkersForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +84,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InfoWorkerForm.resx">
       <DependentUpon>InfoWorkerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JobPosotionForm.resx">
+      <DependentUpon>JobPosotionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QualificationForm.resx">
+      <DependentUpon>QualificationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WorkersForm.resx">
       <DependentUpon>WorkersForm.cs</DependentUpon>

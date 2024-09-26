@@ -16,7 +16,7 @@ namespace Sisir
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new WorkersForm());
+            Application.Run(new QualificationForm());
         }
     }
 }
