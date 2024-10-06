@@ -74,5 +74,17 @@ namespace Sisir
         {
             AddFormCancel();
         }
+
+        private void сотрудникиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WorkersForm f = new WorkersForm();
+            f.Show();
+        }
+
+        private void должностиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            JobPosotionForm f = new JobPosotionForm();
+            f.Show();
+        }
     }
 }

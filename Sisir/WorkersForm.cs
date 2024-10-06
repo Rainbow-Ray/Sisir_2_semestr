@@ -92,5 +92,34 @@ namespace Sisir
             dataGridViewWorkers.Visible = true;
             groupBoxAddForm.Visible = false;
         }
+
+        private void должностиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            JobPosotionForm f = new JobPosotionForm();
+            f.Show();
+        }
+
+        private void уровниКвалификацииToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QualificationForm f = new QualificationForm();
+            f.Show();
+
+        }
+
+        private void textBox19_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label25_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void JobTitleButtonEtc_Click(object sender, EventArgs e)
+        {
+            JobPosotionForm f = new JobPosotionForm(this);
+            f.Show();
+        }
     }
 }

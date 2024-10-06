@@ -42,14 +42,19 @@
             this.dataGridViewWorkers = new System.Windows.Forms.DataGridView();
             this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.сотрудникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.должностиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBoxAddForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWorkers)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // DeleteButton
             // 
-            this.DeleteButton.Location = new System.Drawing.Point(630, 157);
+            this.DeleteButton.Location = new System.Drawing.Point(630, 172);
             this.DeleteButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(163, 31);
@@ -59,7 +64,7 @@
             // 
             // EditButton
             // 
-            this.EditButton.Location = new System.Drawing.Point(630, 80);
+            this.EditButton.Location = new System.Drawing.Point(630, 95);
             this.EditButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.EditButton.Name = "EditButton";
             this.EditButton.Size = new System.Drawing.Size(163, 31);
@@ -69,7 +74,7 @@
             // 
             // AddButton
             // 
-            this.AddButton.Location = new System.Drawing.Point(630, 45);
+            this.AddButton.Location = new System.Drawing.Point(630, 60);
             this.AddButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(163, 31);
@@ -82,7 +87,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(12, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(124, 25);
             this.label1.TabIndex = 14;
@@ -108,7 +113,7 @@
             this.groupBoxAddForm.Controls.Add(this.textBox20);
             this.groupBoxAddForm.Controls.Add(this.label26);
             this.groupBoxAddForm.Controls.Add(this.CancelButoonForm);
-            this.groupBoxAddForm.Location = new System.Drawing.Point(17, 45);
+            this.groupBoxAddForm.Location = new System.Drawing.Point(17, 60);
             this.groupBoxAddForm.Name = "groupBoxAddForm";
             this.groupBoxAddForm.Size = new System.Drawing.Size(354, 297);
             this.groupBoxAddForm.TabIndex = 18;
@@ -172,7 +177,7 @@
             this.dataGridViewWorkers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column15,
             this.Column16});
-            this.dataGridViewWorkers.Location = new System.Drawing.Point(17, 45);
+            this.dataGridViewWorkers.Location = new System.Drawing.Point(17, 60);
             this.dataGridViewWorkers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewWorkers.Name = "dataGridViewWorkers";
             this.dataGridViewWorkers.ReadOnly = true;
@@ -196,17 +201,53 @@
             this.Column16.Name = "Column16";
             this.Column16.ReadOnly = true;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(800, 30);
+            this.menuStrip1.TabIndex = 19;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.сотрудникиToolStripMenuItem,
+            this.должностиToolStripMenuItem});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(65, 26);
+            this.toolStripMenuItem1.Text = "Меню";
+            // 
+            // сотрудникиToolStripMenuItem
+            // 
+            this.сотрудникиToolStripMenuItem.Name = "сотрудникиToolStripMenuItem";
+            this.сотрудникиToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.сотрудникиToolStripMenuItem.Text = "Сотрудники";
+            this.сотрудникиToolStripMenuItem.Click += new System.EventHandler(this.сотрудникиToolStripMenuItem_Click);
+            // 
+            // должностиToolStripMenuItem
+            // 
+            this.должностиToolStripMenuItem.Name = "должностиToolStripMenuItem";
+            this.должностиToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.должностиToolStripMenuItem.Text = "Должности";
+            this.должностиToolStripMenuItem.Click += new System.EventHandler(this.должностиToolStripMenuItem_Click);
+            // 
             // JobPosotionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 474);
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.EditButton);
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBoxAddForm);
             this.Controls.Add(this.dataGridViewWorkers);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "JobPosotionForm";
             this.Text = "Справочник должностей";
             this.Load += new System.EventHandler(this.JobPosotionForm_Load);
@@ -214,6 +255,8 @@
             this.groupBoxAddForm.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWorkers)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -234,5 +277,9 @@
         private System.Windows.Forms.DataGridView dataGridViewWorkers;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem сотрудникиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem должностиToolStripMenuItem;
     }
 }

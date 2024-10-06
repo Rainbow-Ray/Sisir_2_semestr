@@ -12,6 +12,15 @@ namespace Sisir
 {
     public partial class JobPosotionForm : Form, ISprav
     {
+        Form parent;
+
+        public JobPosotionForm(Form parent)
+        {
+            this.parent = parent;
+            InitializeComponent();
+            AddButton.Text = "OK";
+        }
+
         public JobPosotionForm()
         {
             InitializeComponent();
@@ -90,6 +99,19 @@ namespace Sisir
         {
             ShowAddForm();
             AddEditDelButtonsDisable();
+        }
+
+        private void сотрудникиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WorkersForm f = new WorkersForm();
+            f.Show();
+        }
+
+        private void должностиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            JobPosotionForm f = new JobPosotionForm();
+            f.Show();
+
         }
     }
 }
