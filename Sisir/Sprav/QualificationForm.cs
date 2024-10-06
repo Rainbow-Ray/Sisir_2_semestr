@@ -10,8 +10,12 @@ using System.Windows.Forms;
 
 namespace Sisir
 {
-    public partial class QualificationForm : Form, ISprav
+    public partial class QualificationForm : FormWithStripMenu, ISprav
     {
+        public Form parentForm { get; set; }
+
+
+
         public QualificationForm()
         {
             InitializeComponent();
@@ -83,8 +87,24 @@ namespace Sisir
 
         private void должностиToolStripMenuItem_Click(object sender, EventArgs e)
         {
+        }
+
+        private void сотрудникиToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            WorkersForm f = new WorkersForm();
+            f.Show();
+
+        }
+
+        private void должностиToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
             JobPosotionForm f = new JobPosotionForm();
             f.Show();
+        }
+
+        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

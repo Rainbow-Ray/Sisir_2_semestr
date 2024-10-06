@@ -10,15 +10,14 @@ using System.Windows.Forms;
 
 namespace Sisir
 {
-    public partial class JobPosotionForm : Form, ISprav
+    public partial class JobPosotionForm : FormWithStripMenu, ISprav
     {
-        Form parent;
+        public Form parentForm { get; set; }
 
         public JobPosotionForm(Form parent)
         {
-            this.parent = parent;
+            this.parentForm = parent;
             InitializeComponent();
-            AddButton.Text = "OK";
         }
 
         public JobPosotionForm()
@@ -101,16 +100,18 @@ namespace Sisir
             AddEditDelButtonsDisable();
         }
 
-        private void сотрудникиToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            WorkersForm f = new WorkersForm();
-            f.Show();
-        }
-
         private void должностиToolStripMenuItem_Click(object sender, EventArgs e)
         {
             JobPosotionForm f = new JobPosotionForm();
             f.Show();
+
+        }
+
+        private void сотрудникиToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            WorkersForm f = new WorkersForm();
+            f.Show();
+
 
         }
     }

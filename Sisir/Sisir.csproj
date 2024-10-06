@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,6 +47,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,52 +65,79 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddWorkerForm.cs">
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddWorkerForm.Designer.cs">
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sprav\FormWithStripMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sprav\FormWithStripMenu.Designer.cs">
+      <DependentUpon>FormWithStripMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sprav\MyStripMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Sprav\MyStripMenu.Designer.cs">
+      <DependentUpon>MyStripMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Черновики\AddWorkerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Черновики\AddWorkerForm.Designer.cs">
       <DependentUpon>AddWorkerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="InfoWorkerForm.cs">
+    <Compile Include="Черновики\InfoWorkerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InfoWorkerForm.Designer.cs">
+    <Compile Include="Черновики\InfoWorkerForm.Designer.cs">
       <DependentUpon>InfoWorkerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ISprav.cs" />
-    <Compile Include="JobPosotionForm.cs">
+    <Compile Include="Sprav\ISprav.cs" />
+    <Compile Include="Sprav\JobPosotionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="JobPosotionForm.Designer.cs">
+    <Compile Include="Sprav\JobPosotionForm.Designer.cs">
       <DependentUpon>JobPosotionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="QualificationForm.cs">
+    <Compile Include="Sprav\QualificationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QualificationForm.Designer.cs">
+    <Compile Include="Sprav\QualificationForm.Designer.cs">
       <DependentUpon>QualificationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="WorkersForm.cs">
+    <Compile Include="Sprav\WorkersForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WorkersForm.Designer.cs">
+    <Compile Include="Sprav\WorkersForm.Designer.cs">
       <DependentUpon>WorkersForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AddWorkerForm.resx">
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sprav\FormWithStripMenu.resx">
+      <DependentUpon>FormWithStripMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sprav\MyStripMenu.resx">
+      <DependentUpon>MyStripMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Черновики\AddWorkerForm.resx">
       <DependentUpon>AddWorkerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InfoWorkerForm.resx">
+    <EmbeddedResource Include="Черновики\InfoWorkerForm.resx">
       <DependentUpon>InfoWorkerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="JobPosotionForm.resx">
+    <EmbeddedResource Include="Sprav\JobPosotionForm.resx">
       <DependentUpon>JobPosotionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="QualificationForm.resx">
+    <EmbeddedResource Include="Sprav\QualificationForm.resx">
       <DependentUpon>QualificationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WorkersForm.resx">
+    <EmbeddedResource Include="Sprav\WorkersForm.resx">
       <DependentUpon>WorkersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -115,6 +161,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 и x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -10,10 +10,18 @@ using System.Windows.Forms;
 
 namespace Sisir
 {
-    public partial class WorkersForm : Form, ISprav
+    public partial class WorkersForm : FormWithStripMenu, ISprav
     {
+        public Form parentForm { get; set; }
+
         public WorkersForm()
         {
+            InitializeComponent();
+        }
+
+        public WorkersForm(Form parentForm)
+        {
+            this.parentForm = parentForm;
             InitializeComponent();
         }
 
@@ -93,17 +101,9 @@ namespace Sisir
             groupBoxAddForm.Visible = false;
         }
 
-        private void должностиToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            JobPosotionForm f = new JobPosotionForm();
-            f.Show();
-        }
-
         private void уровниКвалификацииToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            QualificationForm f = new QualificationForm();
-            f.Show();
-
+            this.Close();
         }
 
         private void textBox19_TextChanged(object sender, EventArgs e)
@@ -119,6 +119,18 @@ namespace Sisir
         private void JobTitleButtonEtc_Click(object sender, EventArgs e)
         {
             JobPosotionForm f = new JobPosotionForm(this);
+            f.Show();
+        }
+
+        private void должностиToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            JobPosotionForm f = new JobPosotionForm();
+            f.Show();
+        }
+
+        private void уровеньКвалификацииToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QualificationForm f = new QualificationForm();
             f.Show();
         }
     }
