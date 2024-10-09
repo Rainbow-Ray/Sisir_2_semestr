@@ -359,27 +359,27 @@
             // 
             // QualButtonEtc
             // 
-            this.QualButtonEtc.Location = new System.Drawing.Point(153, 41);
+            this.QualButtonEtc.Location = new System.Drawing.Point(151, 39);
             this.QualButtonEtc.Name = "QualButtonEtc";
-            this.QualButtonEtc.Size = new System.Drawing.Size(25, 24);
+            this.QualButtonEtc.Size = new System.Drawing.Size(32, 28);
             this.QualButtonEtc.TabIndex = 26;
             this.QualButtonEtc.Text = "...";
             this.QualButtonEtc.UseVisualStyleBackColor = true;
             // 
             // OtdelButtonEtc
             // 
-            this.OtdelButtonEtc.Location = new System.Drawing.Point(363, 41);
+            this.OtdelButtonEtc.Location = new System.Drawing.Point(360, 39);
             this.OtdelButtonEtc.Name = "OtdelButtonEtc";
-            this.OtdelButtonEtc.Size = new System.Drawing.Size(25, 25);
+            this.OtdelButtonEtc.Size = new System.Drawing.Size(32, 28);
             this.OtdelButtonEtc.TabIndex = 25;
             this.OtdelButtonEtc.Text = "...";
             this.OtdelButtonEtc.UseVisualStyleBackColor = true;
             // 
             // JobTitleButtonEtc
             // 
-            this.JobTitleButtonEtc.Location = new System.Drawing.Point(771, 41);
+            this.JobTitleButtonEtc.Location = new System.Drawing.Point(770, 39);
             this.JobTitleButtonEtc.Name = "JobTitleButtonEtc";
-            this.JobTitleButtonEtc.Size = new System.Drawing.Size(25, 25);
+            this.JobTitleButtonEtc.Size = new System.Drawing.Size(32, 28);
             this.JobTitleButtonEtc.TabIndex = 24;
             this.JobTitleButtonEtc.Text = "...";
             this.JobTitleButtonEtc.UseVisualStyleBackColor = true;
@@ -773,13 +773,17 @@
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridViewWorkers);
-            //this.Controls.Add(this.menuStrip1);
-            //this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MinimumSize = new System.Drawing.Size(461, 605);
             this.Name = "WorkersForm";
             this.Text = "Справочник сотрудников";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Controls.SetChildIndex(this.dataGridViewWorkers, 0);
+            this.Controls.SetChildIndex(this.label1, 0);
+            this.Controls.SetChildIndex(this.AddButton, 0);
+            this.Controls.SetChildIndex(this.EditButton, 0);
+            this.Controls.SetChildIndex(this.DeleteButton, 0);
+            this.Controls.SetChildIndex(this.groupBoxAddForm, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWorkers)).EndInit();
             this.groupBoxAddForm.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);

@@ -103,7 +103,7 @@ namespace Sisir
 
         private void уровниКвалификацииToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            //this.Close();
         }
 
         private void textBox19_TextChanged(object sender, EventArgs e)
