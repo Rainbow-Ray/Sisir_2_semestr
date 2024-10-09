@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Sisir
 {
-    internal interface ISprav
+    public interface ISprav
     {
         Form parentForm { get; set; }
         void AddEditDelButtonsEnable();
@@ -15,6 +15,8 @@ namespace Sisir
         void ShowAddForm();
         void AddFormOkay();
         void AddFormCancel();
+
+        void ShowHelperSprav<T>() where T : Form, ISprav, new();
 
     }
 }

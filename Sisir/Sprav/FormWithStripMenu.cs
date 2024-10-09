@@ -15,7 +15,7 @@ namespace Sisir
 {
     public partial class FormWithStripMenu : Form
     {
-        private MyStripMenu menuStrip;
+        internal MyStripMenu menuStrip;
 
         public FormWithStripMenu()
         {
@@ -82,6 +82,7 @@ namespace Sisir
             this.Close();
         }
 
+       
         private void SpravParentForm_Load(object sender, EventArgs e)
         {
 

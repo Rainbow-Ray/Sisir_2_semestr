@@ -116,11 +116,6 @@ namespace Sisir
 
         }
 
-        private void JobTitleButtonEtc_Click(object sender, EventArgs e)
-        {
-            JobPosotionForm f = new JobPosotionForm(this);
-            f.Show();
-        }
 
         private void должностиToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
@@ -133,5 +128,32 @@ namespace Sisir
             QualificationForm f = new QualificationForm();
             f.Show();
         }
+        private void JobTitleButtonEtc_Click(object sender, EventArgs e)
+        {
+            JobPosotionForm f = new JobPosotionForm(this);
+            f.ShowDialog();
+            var a = f.click;
+            comboBox2.Text = a;
+
+        }
+
+        private void QualButtonEtc_Click(object sender, EventArgs e)
+        {
+            //ShowHelperSprav<QualificationForm>();
+            QualificationForm f = new QualificationForm();
+            f.parentForm = this;
+            f.ShowDialog();
+            var a = f.click;
+            comboBox1.Text = a;
+            
+        }
+
+        public void ShowHelperSprav<T>() where T : Form, ISprav, new()
+        {
+            T f = new T();
+            f.parentForm = this;
+            f.ShowDialog();
+        }
+
     }
 }

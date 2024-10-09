@@ -365,6 +365,7 @@
             this.QualButtonEtc.TabIndex = 26;
             this.QualButtonEtc.Text = "...";
             this.QualButtonEtc.UseVisualStyleBackColor = true;
+            this.QualButtonEtc.Click += new System.EventHandler(this.QualButtonEtc_Click);
             // 
             // OtdelButtonEtc
             // 

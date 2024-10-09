@@ -7,12 +7,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Sisir.QualificationForm;
 
 namespace Sisir
 {
     public partial class JobPosotionForm : FormWithStripMenu, ISprav
     {
         public Form parentForm { get; set; }
+        public BindingList<JobPos> items = new BindingList<JobPos>();
+        public string click;
+
+        public class JobPos
+        {
+            public string Name { get; set; }
+            public int Zp { get; set; }
+            public JobPos(string name, int zp)
+            {
+                Name = name;
+                Zp = zp;
+            }
+        }
+
 
         public JobPosotionForm(Form parent)
         {
@@ -79,13 +94,44 @@ namespace Sisir
         }
         private void JobPosotionForm_Load(object sender, EventArgs e)
         {
+            if (parentForm != null)
+            {
+                this.menuStrip.Visible = false;
+                this.menuStrip.Enabled = false;
+                dataGridViewWorkers.CellDoubleClick += DataGridViewWorkers_CellDoubleClick;
+            }
+            dataGridViewWorkers.Columns[0].DataPropertyName = "Name";
+            dataGridViewWorkers.Columns[1].DataPropertyName = "Zp";
 
+            dataGridViewWorkers.DataSource = items;
+
+        }
+
+        private void DataGridViewWorkers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var a = dataGridViewWorkers.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+            if (a != null)
+            {
+                click = a.ToString();
+            }
+            this.Close();
         }
 
         private void OkButtonForm_Click_1(object sender, EventArgs e)
         {
-            AddFormOkay();
-            AddEditDelButtonsEnable();
+            try
+            {
+                items.Add(new JobPos(textBox20.Text, int.Parse(textBox1.Text)));
+                dataGridViewWorkers.Update();
+
+                AddFormOkay();
+                AddEditDelButtonsEnable();
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Зарплата должна быть указана в виде целого числа");
+            }
         }
 
         private void CancelButoonForm_Click_1(object sender, EventArgs e)
@@ -113,6 +159,16 @@ namespace Sisir
             f.Show();
 
 
+        }
+
+        public void ShowHelperSprav()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ShowHelperSprav<T>() where T : Form, ISprav, new()
+        {
+            throw new NotImplementedException();
         }
     }
 }
