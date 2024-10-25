@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Sisir.QualificationForm;
+using Sisir.Sprav;
 
 namespace Sisir
 {
@@ -16,18 +17,6 @@ namespace Sisir
         public Form parentForm { get; set; }
         public BindingList<JobPos> items = new BindingList<JobPos>();
         public string click;
-
-        public class JobPos
-        {
-            public string Name { get; set; }
-            public int Zp { get; set; }
-            public JobPos(string name, int zp)
-            {
-                Name = name;
-                Zp = zp;
-            }
-        }
-
 
         public JobPosotionForm(Form parent)
         {
@@ -94,12 +83,6 @@ namespace Sisir
         }
         private void JobPosotionForm_Load(object sender, EventArgs e)
         {
-            if (parentForm != null)
-            {
-                this.menuStrip.Visible = false;
-                this.menuStrip.Enabled = false;
-                dataGridViewWorkers.CellDoubleClick += DataGridViewWorkers_CellDoubleClick;
-            }
             dataGridViewWorkers.Columns[0].DataPropertyName = "Name";
             dataGridViewWorkers.Columns[1].DataPropertyName = "Zp";
 
@@ -169,6 +152,37 @@ namespace Sisir
         public void ShowHelperSprav<T>() where T : Form, ISprav, new()
         {
             throw new NotImplementedException();
+        }
+
+        private void JobPosotionForm_Activated(object sender, EventArgs e)
+        {
+            if (parentForm != null)
+            {
+                this.menuStrip.Visible = false;
+                this.menuStrip.Enabled = false;
+                dataGridViewWorkers.CellDoubleClick += DataGridViewWorkers_CellDoubleClick;
+            }
+
+        }
+
+        private void JobPosotionForm_ParentChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void dataGridViewWorkers_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (parentForm != null)
+            {
+                this.menuStrip.Visible = false;
+                this.menuStrip.Enabled = false;
+                dataGridViewWorkers.CellDoubleClick += dataGridViewWorkers_CellContentClick;
+            }
+
+        }
+
+        private void dataGridViewWorkers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

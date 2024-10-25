@@ -34,7 +34,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(143, 197);
+            this.label1.Location = new System.Drawing.Point(12, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(513, 16);
             this.label1.TabIndex = 14;
@@ -47,7 +47,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label1);
             this.Name = "MainForm";
-            this.Text = "MainForm";
+            this.Text = "Главная форма";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.Controls.SetChildIndex(this.label1, 0);
             this.ResumeLayout(false);

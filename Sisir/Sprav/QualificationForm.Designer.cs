@@ -44,11 +44,11 @@
             this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справочникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сотрудникиToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.должностиToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.уровниКвалификацииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBoxAddForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWorkers)).BeginInit();
@@ -189,10 +189,12 @@
             this.dataGridViewWorkers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewWorkers.Name = "dataGridViewWorkers";
             this.dataGridViewWorkers.ReadOnly = true;
+            this.dataGridViewWorkers.RowHeadersVisible = false;
             this.dataGridViewWorkers.RowHeadersWidth = 51;
             this.dataGridViewWorkers.RowTemplate.Height = 24;
             this.dataGridViewWorkers.Size = new System.Drawing.Size(607, 389);
             this.dataGridViewWorkers.TabIndex = 7;
+            this.dataGridViewWorkers.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewWorkers_CellDoubleClick);
             // 
             // Column15
             // 
@@ -230,6 +232,13 @@
             this.toolStripMenuItem1.Size = new System.Drawing.Size(65, 24);
             this.toolStripMenuItem1.Text = "Меню";
             // 
+            // выходToolStripMenuItem
+            // 
+            this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(136, 26);
+            this.выходToolStripMenuItem.Text = "Выход";
+            this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
+            // 
             // справочникиToolStripMenuItem
             // 
             this.справочникиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -260,13 +269,6 @@
             this.уровниКвалификацииToolStripMenuItem.Size = new System.Drawing.Size(250, 26);
             this.уровниКвалификацииToolStripMenuItem.Text = "Уровни квалификации";
             // 
-            // выходToolStripMenuItem
-            // 
-            this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.выходToolStripMenuItem.Text = "Выход";
-            this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
-            // 
             // QualificationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -278,11 +280,18 @@
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridViewWorkers);
-            //this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "QualificationForm";
             this.Text = "Справочник уровней квалификации";
+            this.Activated += new System.EventHandler(this.QualificationForm_Activated);
             this.Load += new System.EventHandler(this.Qualification_Load);
+            this.ParentChanged += new System.EventHandler(this.QualificationForm_ParentChanged);
+            this.Controls.SetChildIndex(this.dataGridViewWorkers, 0);
+            this.Controls.SetChildIndex(this.label1, 0);
+            this.Controls.SetChildIndex(this.AddButton, 0);
+            this.Controls.SetChildIndex(this.EditButton, 0);
+            this.Controls.SetChildIndex(this.DeleteButton, 0);
+            this.Controls.SetChildIndex(this.groupBoxAddForm, 0);
             this.groupBoxAddForm.ResumeLayout(false);
             this.groupBoxAddForm.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();

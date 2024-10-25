@@ -45,11 +45,11 @@
             this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справочникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сотрудникиToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.должностиToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.уровниКвалификацииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBoxAddForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWorkers)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -57,7 +57,7 @@
             // 
             // DeleteButton
             // 
-            this.DeleteButton.Location = new System.Drawing.Point(630, 172);
+            this.DeleteButton.Location = new System.Drawing.Point(630, 182);
             this.DeleteButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(163, 31);
@@ -67,7 +67,7 @@
             // 
             // EditButton
             // 
-            this.EditButton.Location = new System.Drawing.Point(630, 95);
+            this.EditButton.Location = new System.Drawing.Point(630, 105);
             this.EditButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.EditButton.Name = "EditButton";
             this.EditButton.Size = new System.Drawing.Size(163, 31);
@@ -77,7 +77,7 @@
             // 
             // AddButton
             // 
-            this.AddButton.Location = new System.Drawing.Point(630, 60);
+            this.AddButton.Location = new System.Drawing.Point(630, 70);
             this.AddButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(163, 31);
@@ -90,7 +90,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(12, 24);
+            this.label1.Location = new System.Drawing.Point(12, 34);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(124, 25);
             this.label1.TabIndex = 14;
@@ -100,7 +100,7 @@
             // OkButtonForm
             // 
             this.OkButtonForm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.OkButtonForm.Location = new System.Drawing.Point(94, 203);
+            this.OkButtonForm.Location = new System.Drawing.Point(235, 203);
             this.OkButtonForm.Name = "OkButtonForm";
             this.OkButtonForm.Size = new System.Drawing.Size(124, 31);
             this.OkButtonForm.TabIndex = 27;
@@ -117,9 +117,9 @@
             this.groupBoxAddForm.Controls.Add(this.textBox20);
             this.groupBoxAddForm.Controls.Add(this.label26);
             this.groupBoxAddForm.Controls.Add(this.CancelButoonForm);
-            this.groupBoxAddForm.Location = new System.Drawing.Point(17, 60);
+            this.groupBoxAddForm.Location = new System.Drawing.Point(17, 70);
             this.groupBoxAddForm.Name = "groupBoxAddForm";
-            this.groupBoxAddForm.Size = new System.Drawing.Size(354, 240);
+            this.groupBoxAddForm.Size = new System.Drawing.Size(495, 240);
             this.groupBoxAddForm.TabIndex = 18;
             this.groupBoxAddForm.TabStop = false;
             this.groupBoxAddForm.Text = "Форма добавления новой должности";
@@ -154,7 +154,7 @@
             // 
             this.textBox20.Location = new System.Drawing.Point(5, 40);
             this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(335, 22);
+            this.textBox20.Size = new System.Drawing.Size(484, 22);
             this.textBox20.TabIndex = 11;
             // 
             // label26
@@ -169,7 +169,7 @@
             // CancelButoonForm
             // 
             this.CancelButoonForm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.CancelButoonForm.Location = new System.Drawing.Point(224, 203);
+            this.CancelButoonForm.Location = new System.Drawing.Point(365, 203);
             this.CancelButoonForm.Name = "CancelButoonForm";
             this.CancelButoonForm.Size = new System.Drawing.Size(124, 31);
             this.CancelButoonForm.TabIndex = 22;
@@ -184,14 +184,17 @@
             this.dataGridViewWorkers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column15,
             this.Column16});
-            this.dataGridViewWorkers.Location = new System.Drawing.Point(17, 60);
+            this.dataGridViewWorkers.Location = new System.Drawing.Point(17, 70);
             this.dataGridViewWorkers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewWorkers.Name = "dataGridViewWorkers";
             this.dataGridViewWorkers.ReadOnly = true;
+            this.dataGridViewWorkers.RowHeadersVisible = false;
             this.dataGridViewWorkers.RowHeadersWidth = 51;
             this.dataGridViewWorkers.RowTemplate.Height = 24;
             this.dataGridViewWorkers.Size = new System.Drawing.Size(607, 389);
             this.dataGridViewWorkers.TabIndex = 13;
+            this.dataGridViewWorkers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewWorkers_CellContentClick);
+            this.dataGridViewWorkers.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewWorkers_CellDoubleClick_1);
             // 
             // Column15
             // 
@@ -228,6 +231,12 @@
             this.toolStripMenuItem1.Size = new System.Drawing.Size(65, 24);
             this.toolStripMenuItem1.Text = "Меню";
             // 
+            // выходToolStripMenuItem
+            // 
+            this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(136, 26);
+            this.выходToolStripMenuItem.Text = "Выход";
+            // 
             // справочникиToolStripMenuItem
             // 
             this.справочникиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -257,12 +266,6 @@
             this.уровниКвалификацииToolStripMenuItem.Size = new System.Drawing.Size(250, 26);
             this.уровниКвалификацииToolStripMenuItem.Text = "Уровни квалификации";
             // 
-            // выходToolStripMenuItem
-            // 
-            this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.выходToolStripMenuItem.Text = "Выход";
-            // 
             // JobPosotionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -274,11 +277,18 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBoxAddForm);
             this.Controls.Add(this.dataGridViewWorkers);
-            //this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "JobPosotionForm";
             this.Text = "Справочник должностей";
+            this.Activated += new System.EventHandler(this.JobPosotionForm_Activated);
             this.Load += new System.EventHandler(this.JobPosotionForm_Load);
+            this.ParentChanged += new System.EventHandler(this.JobPosotionForm_ParentChanged);
+            this.Controls.SetChildIndex(this.dataGridViewWorkers, 0);
+            this.Controls.SetChildIndex(this.groupBoxAddForm, 0);
+            this.Controls.SetChildIndex(this.label1, 0);
+            this.Controls.SetChildIndex(this.AddButton, 0);
+            this.Controls.SetChildIndex(this.EditButton, 0);
+            this.Controls.SetChildIndex(this.DeleteButton, 0);
             this.groupBoxAddForm.ResumeLayout(false);
             this.groupBoxAddForm.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWorkers)).EndInit();

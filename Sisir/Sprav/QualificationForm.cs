@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sisir.Sprav;
 
 namespace Sisir
 {
@@ -20,16 +21,6 @@ namespace Sisir
         {
             this.parentForm = parent;
             InitializeComponent();
-        }
-        public class QualLevel
-        {
-            public string Name { get; set; }
-            public double Coef { get; set; }
-            public QualLevel(string name, double coef)
-            {
-                Name = name;
-                Coef = coef;
-            }
         }
 
         public QualificationForm()
@@ -90,7 +81,7 @@ namespace Sisir
 
         private void DataGridViewWorkers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            var a = dataGridViewWorkers.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+            var a = dataGridViewWorkers.Rows[e.RowIndex].Cells[0].Value;
             if (a != null)
             {
                 click = a.ToString();
@@ -151,6 +142,27 @@ namespace Sisir
         public void ShowHelperSprav<T>() where T : Form, ISprav, new()
         {
             throw new NotImplementedException();
+        }
+
+        private void QualificationForm_ParentChanged(object sender, EventArgs e)
+        {
+            this.menuStrip.Visible = false;
+        }
+
+        private void dataGridViewWorkers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void QualificationForm_Activated(object sender, EventArgs e)
+        {
+            if (parentForm != null)
+            {
+                this.menuStrip.Visible = false;
+                this.menuStrip.Enabled = false;
+                dataGridViewWorkers.CellDoubleClick += dataGridViewWorkers_CellDoubleClick;
+            }
+
         }
     }
 }

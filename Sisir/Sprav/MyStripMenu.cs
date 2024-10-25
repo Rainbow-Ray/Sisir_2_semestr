@@ -17,8 +17,11 @@ namespace Sisir
         internal ToolStripMenuItem SpravToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         //Все подвкладки
         internal ToolStripMenuItem WorkersToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+
         internal ToolStripMenuItem JobPosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         internal ToolStripMenuItem QualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+        internal ToolStripMenuItem SkillToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+        internal ToolStripMenuItem ProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         internal ToolStripMenuItem ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 
         public MyStripMenu(string name = "menuStrip1")
@@ -45,7 +48,14 @@ namespace Sisir
             SpravToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             WorkersToolStripMenuItem1,
             JobPosToolStripMenuItem,
-            QualToolStripMenuItem});
+            QualToolStripMenuItem,
+            SkillToolStripMenuItem,
+            ProjectToolStripMenuItem,
+
+
+            });
+
+
             SpravToolStripMenuItem.Name = "справочникиToolStripMenuItem";
             SpravToolStripMenuItem.Size = new System.Drawing.Size(117, 24);
             SpravToolStripMenuItem.Text = "Справочники";
@@ -67,6 +77,16 @@ namespace Sisir
             QualToolStripMenuItem.Name = "QualToolStripMenuItem";
             QualToolStripMenuItem.Size = new System.Drawing.Size(250, 26);
             QualToolStripMenuItem.Text = "Уровни квалификации";
+            //Подвкладка НавыкиSkillToolStripMenuItem
+            // 
+            SkillToolStripMenuItem.Name = "SkillToolStripMenuItem";
+            SkillToolStripMenuItem.Size = new System.Drawing.Size(250, 26);
+            SkillToolStripMenuItem.Text = "Навыки";
+            //Подвкладка ПроектыSkillToolStripMenuItem
+            // 
+            ProjectToolStripMenuItem.Name = "ProjectlToolStripMenuItem";
+            ProjectToolStripMenuItem.Size = new System.Drawing.Size(250, 26);
+            ProjectToolStripMenuItem.Text = "Проекты";
             // 
             //Подвкладка выходToolStripMenuItem
             // 

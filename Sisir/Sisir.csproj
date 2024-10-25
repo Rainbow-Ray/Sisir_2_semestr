@@ -77,6 +77,7 @@
     <Compile Include="Sprav\DropDownWithButton.Designer.cs">
       <DependentUpon>DropDownWithButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sprav\Entity.cs" />
     <Compile Include="Sprav\FormWithStripMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +89,18 @@
     </Compile>
     <Compile Include="Sprav\MyStripMenu.Designer.cs">
       <DependentUpon>MyStripMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sprav\ProjectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sprav\ProjectForm.Designer.cs">
+      <DependentUpon>ProjectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sprav\SkillForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sprav\SkillForm.Designer.cs">
+      <DependentUpon>SkillForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Черновики\AddWorkerForm.cs">
       <SubType>Form</SubType>
@@ -133,6 +146,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sprav\MyStripMenu.resx">
       <DependentUpon>MyStripMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sprav\ProjectForm.resx">
+      <DependentUpon>ProjectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sprav\SkillForm.resx">
+      <DependentUpon>SkillForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Черновики\AddWorkerForm.resx">
       <DependentUpon>AddWorkerForm.cs</DependentUpon>
