@@ -141,8 +141,8 @@ namespace Sisir
             dataGridViewWorkers.Visible = true;
             groupBoxAddForm.Visible = false;
 
-            var wk = new Worker(textBox2.Text, textBox1.Text, textBox3.Text, comboBox3.Text);
-            workerList.Add(wk);
+            //var wk = new Worker(textBox2.Text, textBox1.Text, textBox3.Text, comboBox3.Text);
+            //workerList.Add(wk);
             dataGridViewWorkers.Update();
         }
 

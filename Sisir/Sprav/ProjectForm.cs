@@ -131,8 +131,8 @@ namespace Sisir.Sprav
         private void QualButtonEtc_Click(object sender, EventArgs e)
         {
             var f = OpenSprav<WorkersForm>(true);
-            var item = new Worker("", "", "", "");
-            itemList.Add(item);
+            //var item = new Worker("", "", "", "");
+            //itemList.Add(item);
             dataGridView1.Update();
 
         }
