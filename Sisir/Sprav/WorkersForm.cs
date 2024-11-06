@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Npgsql;
+using System.Diagnostics;
 
 namespace Sisir
 {
@@ -17,6 +19,8 @@ namespace Sisir
         public BindingList<itemSkill> skillList  = new BindingList<itemSkill>();
         public BindingList<Worker> workerList  = new BindingList<Worker>();
         public Worker worker = null;
+        private NpgsqlDataSource dataSource;
+        private DataSet workersDS = new DataSet();
 
 
         public class itemSkill
@@ -44,14 +48,48 @@ namespace Sisir
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            var conn = ConnectToDb();
+
+            var adapter = new NpgsqlDataAdapter("Select * From worker", conn);
+
+            adapter.Fill(workersDS);
+
+            //var reader = dataSource.CreateCommand("Select * From 'worker'").ExecuteReader();
+
+            //workersDS.Load(reader, LoadOption.Upsert, "worker");
+
             dataGridView1.Columns[0].DataPropertyName = "name";
             dataGridView1.Columns[1].DataPropertyName = "level";
-            this.dataGridView1.DataSource = skillList;
+            this.dataGridView1.DataSource = dataSource;
 
-            dataGridViewWorkers.Columns[0].DataPropertyName = "Surname";
-            dataGridViewWorkers.Columns[1].DataPropertyName = "Name";
-            dataGridViewWorkers.Columns[2].DataPropertyName = "SecName";
-            dataGridViewWorkers.DataSource = workerList;
+            //dataGridViewWorkers.Columns[0].DataPropertyName = "name";
+            //dataGridViewWorkers.Columns[1].DataPropertyName = "surname";
+            //dataGridViewWorkers.Columns[2].DataPropertyName = "patronym";
+            //dataGridViewWorkers.AutoGenerateColumns = true;
+
+            //dataGridViewWorkers.DataSource = workerList;
+
+            dataGridViewWorkers.DataSource = workersDS.Tables[0];
+            Adjust_Columns();
+            //dataGridViewWorkers.Update();
+        }
+
+        private void FillTable() { }
+
+        private void Adjust_Columns()
+        {
+            dataGridViewWorkers.Columns["name"].DisplayIndex = 0;
+            dataGridViewWorkers.Columns["surname"].DisplayIndex = 1;
+            dataGridViewWorkers.Columns["patronym"].DisplayIndex = 2;
+            dataGridViewWorkers.Columns["job_position"].DisplayIndex = 3;
+            dataGridViewWorkers.Columns["qual_level"].DisplayIndex = 4;
+            dataGridViewWorkers.Columns["birth_date"].DisplayIndex = 5;
+            dataGridViewWorkers.Columns["pass_serie"].DisplayIndex = 6;
+            dataGridViewWorkers.Columns["pass_num"].DisplayIndex = 7;
+            dataGridViewWorkers.Columns["pass_date"].DisplayIndex = 8;
+            dataGridViewWorkers.Columns["pass_who"].DisplayIndex = 8;
+            dataGridViewWorkers.Columns["adress_pass"].DisplayIndex = 9;
+            dataGridViewWorkers.Columns["adress_fact"].DisplayIndex = 10;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

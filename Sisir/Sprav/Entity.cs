@@ -5,7 +5,21 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Sisir.Sprav
-{    public class Worker
+
+{ 
+
+    public interface IEntity
+    {
+        void Validate();
+        void Insert();
+
+        void Update();
+
+        void Delete();
+    }
+
+    
+    public class Worker :IEntity
     {
         public string Surname { get; set; }
         public string Name { get; set; }
@@ -19,6 +33,26 @@ namespace Sisir.Sprav
             Name = name;
             SecName = secName;
             Job = job;
+        }
+
+        public void Validate()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Insert()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete()
+        {
+            throw new NotImplementedException();
         }
     }
 

@@ -29,22 +29,6 @@
         private void InitializeComponent()
         {
             this.dataGridViewWorkers = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.AddButton = new System.Windows.Forms.Button();
             this.EditButton = new System.Windows.Forms.Button();
@@ -100,6 +84,21 @@
             this.сотрудникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.должностиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.уровеньКвалификацииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.surname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patronym = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.job_position = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qual_level = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pass_num = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pass_serie = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.birth_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pass_who = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pass_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.adress_pass = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.adress_fact = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWorkers)).BeginInit();
             this.groupBoxAddForm.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -117,24 +116,24 @@
             this.dataGridViewWorkers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dataGridViewWorkers.ColumnHeadersHeight = 29;
             this.dataGridViewWorkers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column8,
-            this.Column9,
-            this.Column7,
-            this.Column5,
-            this.Column6,
-            this.Column4,
-            this.Column11,
-            this.Column12,
-            this.Column10,
-            this.Column13,
-            this.Column14,
-            this.Column15,
-            this.Column16});
+            this.name,
+            this.surname,
+            this.patronym,
+            this.job_position,
+            this.qual_level,
+            this.email,
+            this.tg,
+            this.phone,
+            this.pass_num,
+            this.pass_serie,
+            this.birth_date,
+            this.pass_who,
+            this.pass_date,
+            this.adress_pass,
+            this.adress_fact});
             this.dataGridViewWorkers.Location = new System.Drawing.Point(17, 74);
             this.dataGridViewWorkers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridViewWorkers.MultiSelect = false;
             this.dataGridViewWorkers.Name = "dataGridViewWorkers";
             this.dataGridViewWorkers.ReadOnly = true;
             this.dataGridViewWorkers.RowHeadersVisible = false;
@@ -143,134 +142,6 @@
             this.dataGridViewWorkers.Size = new System.Drawing.Size(1322, 557);
             this.dataGridViewWorkers.TabIndex = 0;
             this.dataGridViewWorkers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Имя";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 62;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Фамилия";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 95;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Отчество";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 99;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Должность";
-            this.Column8.MinimumWidth = 6;
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.Width = 107;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Уровень квалификации";
-            this.Column9.MinimumWidth = 6;
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            this.Column9.Width = 192;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Отдел";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Width = 77;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Email";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 70;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Ник в Telegram";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 134;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Номер телефона";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 148;
-            // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "Номер паспорта";
-            this.Column11.MinimumWidth = 6;
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
-            this.Column11.Width = 144;
-            // 
-            // Column12
-            // 
-            this.Column12.HeaderText = "Серия паспорта";
-            this.Column12.MinimumWidth = 6;
-            this.Column12.Name = "Column12";
-            this.Column12.ReadOnly = true;
-            this.Column12.Width = 141;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "Дата рождения";
-            this.Column10.MinimumWidth = 6;
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            this.Column10.Width = 135;
-            // 
-            // Column13
-            // 
-            this.Column13.HeaderText = "Кем выдан";
-            this.Column13.MinimumWidth = 6;
-            this.Column13.Name = "Column13";
-            this.Column13.ReadOnly = true;
-            this.Column13.Width = 105;
-            // 
-            // Column14
-            // 
-            this.Column14.HeaderText = "Дата выдачи паспорта";
-            this.Column14.MinimumWidth = 6;
-            this.Column14.Name = "Column14";
-            this.Column14.ReadOnly = true;
-            this.Column14.Width = 185;
-            // 
-            // Column15
-            // 
-            this.Column15.HeaderText = "Адрес прописки";
-            this.Column15.MinimumWidth = 6;
-            this.Column15.Name = "Column15";
-            this.Column15.ReadOnly = true;
-            this.Column15.Width = 141;
-            // 
-            // Column16
-            // 
-            this.Column16.HeaderText = "Адрес факт. проживания";
-            this.Column16.MinimumWidth = 6;
-            this.Column16.Name = "Column16";
-            this.Column16.ReadOnly = true;
-            this.Column16.Width = 198;
             // 
             // label1
             // 
@@ -809,6 +680,141 @@
             this.уровеньКвалификацииToolStripMenuItem.Text = "Уровни квалификации";
             this.уровеньКвалификацииToolStripMenuItem.Click += new System.EventHandler(this.уровеньКвалификацииToolStripMenuItem_Click);
             // 
+            // name
+            // 
+            this.name.DataPropertyName = "name";
+            this.name.HeaderText = "Имя";
+            this.name.MinimumWidth = 6;
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            this.name.Width = 62;
+            // 
+            // surname
+            // 
+            this.surname.DataPropertyName = "surname";
+            this.surname.HeaderText = "Фамилия";
+            this.surname.MinimumWidth = 6;
+            this.surname.Name = "surname";
+            this.surname.ReadOnly = true;
+            this.surname.Width = 95;
+            // 
+            // patronym
+            // 
+            this.patronym.DataPropertyName = "patronym";
+            this.patronym.HeaderText = "Отчество";
+            this.patronym.MinimumWidth = 6;
+            this.patronym.Name = "patronym";
+            this.patronym.ReadOnly = true;
+            this.patronym.Width = 99;
+            // 
+            // job_position
+            // 
+            this.job_position.DataPropertyName = "job_position";
+            this.job_position.HeaderText = "Должность";
+            this.job_position.MinimumWidth = 6;
+            this.job_position.Name = "job_position";
+            this.job_position.ReadOnly = true;
+            this.job_position.Width = 107;
+            // 
+            // qual_level
+            // 
+            this.qual_level.DataPropertyName = "qual_level";
+            this.qual_level.HeaderText = "Уровень квалификации";
+            this.qual_level.MinimumWidth = 6;
+            this.qual_level.Name = "qual_level";
+            this.qual_level.ReadOnly = true;
+            this.qual_level.Width = 192;
+            // 
+            // email
+            // 
+            this.email.DataPropertyName = "email";
+            this.email.HeaderText = "Email";
+            this.email.MinimumWidth = 6;
+            this.email.Name = "email";
+            this.email.ReadOnly = true;
+            this.email.Width = 70;
+            // 
+            // tg
+            // 
+            this.tg.DataPropertyName = "tg";
+            this.tg.HeaderText = "Ник в Telegram";
+            this.tg.MinimumWidth = 6;
+            this.tg.Name = "tg";
+            this.tg.ReadOnly = true;
+            this.tg.Width = 134;
+            // 
+            // phone
+            // 
+            this.phone.DataPropertyName = "phone";
+            this.phone.HeaderText = "Номер телефона";
+            this.phone.MinimumWidth = 6;
+            this.phone.Name = "phone";
+            this.phone.ReadOnly = true;
+            this.phone.Width = 148;
+            // 
+            // pass_num
+            // 
+            this.pass_num.DataPropertyName = "pass_num";
+            this.pass_num.HeaderText = "Номер паспорта";
+            this.pass_num.MinimumWidth = 6;
+            this.pass_num.Name = "pass_num";
+            this.pass_num.ReadOnly = true;
+            this.pass_num.Width = 144;
+            // 
+            // pass_serie
+            // 
+            this.pass_serie.DataPropertyName = "pass_serie";
+            this.pass_serie.HeaderText = "Серия паспорта";
+            this.pass_serie.MinimumWidth = 6;
+            this.pass_serie.Name = "pass_serie";
+            this.pass_serie.ReadOnly = true;
+            this.pass_serie.Width = 141;
+            // 
+            // birth_date
+            // 
+            this.birth_date.DataPropertyName = "birth_date";
+            this.birth_date.HeaderText = "Дата рождения";
+            this.birth_date.MinimumWidth = 6;
+            this.birth_date.Name = "birth_date";
+            this.birth_date.ReadOnly = true;
+            this.birth_date.Width = 135;
+            // 
+            // pass_who
+            // 
+            this.pass_who.DataPropertyName = "pass_who";
+            this.pass_who.HeaderText = "Кем выдан";
+            this.pass_who.MinimumWidth = 6;
+            this.pass_who.Name = "pass_who";
+            this.pass_who.ReadOnly = true;
+            this.pass_who.Width = 105;
+            // 
+            // pass_date
+            // 
+            this.pass_date.DataPropertyName = "pass_date";
+            this.pass_date.HeaderText = "Дата выдачи паспорта";
+            this.pass_date.MinimumWidth = 6;
+            this.pass_date.Name = "pass_date";
+            this.pass_date.ReadOnly = true;
+            this.pass_date.Width = 185;
+            // 
+            // adress_pass
+            // 
+            this.adress_pass.DataPropertyName = "adress_pass";
+            this.adress_pass.HeaderText = "Адрес прописки";
+            this.adress_pass.MinimumWidth = 6;
+            this.adress_pass.Name = "adress_pass";
+            this.adress_pass.ReadOnly = true;
+            this.adress_pass.Width = 141;
+            // 
+            // adress_fact
+            // 
+            this.adress_fact.DataPropertyName = "adress_fact";
+            this.adress_fact.HeaderText = "Адрес факт. проживания";
+            this.adress_fact.MinimumWidth = 6;
+            this.adress_fact.Name = "adress_fact";
+            this.adress_fact.ReadOnly = true;
+            this.adress_fact.Width = 198;
+            // 
             // WorkersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -893,22 +899,6 @@
         private System.Windows.Forms.Button CancelButoonForm;
         private System.Windows.Forms.Button OkButtonForm;
         private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem уровниКвалификацииToolStripMenuItem;
@@ -924,6 +914,21 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn surname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn patronym;
+        private System.Windows.Forms.DataGridViewTextBoxColumn job_position;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qual_level;
+        private System.Windows.Forms.DataGridViewTextBoxColumn email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pass_num;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pass_serie;
+        private System.Windows.Forms.DataGridViewTextBoxColumn birth_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pass_who;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pass_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn adress_pass;
+        private System.Windows.Forms.DataGridViewTextBoxColumn adress_fact;
     }
 }
 
