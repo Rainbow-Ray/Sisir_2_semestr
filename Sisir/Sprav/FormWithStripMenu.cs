@@ -37,26 +37,6 @@ namespace Sisir
 
         }
 
-        public NpgsqlConnection ConnectToDb()
-        {
-            try {
-                var connectionString = "Host=localhost;Username='postgres';Password='1234';Database=sisir";
-                var dataSource = NpgsqlDataSource.Create(connectionString);
-                var conn = dataSource.OpenConnection();
-
-                return conn;
-            }
-            catch {
-                var a = MessageBox.Show("Не удалось подключиться к базе данных. Попробуйте открыть справочкик еще раз.");
-                return null;
-            }
-        }
-
-
-        public void CloseConnection(NpgsqlConnection conn)
-        {
-            conn.Close();
-        }
 
 
         private void ProjectToolStripMenuItem_Click(object sender, EventArgs e)
@@ -151,12 +131,10 @@ namespace Sisir
             }
         }
 
-
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
        
         private void SpravParentForm_Load(object sender, EventArgs e)
         {

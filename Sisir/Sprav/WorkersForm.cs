@@ -22,6 +22,8 @@ namespace Sisir
         private NpgsqlDataSource dataSource;
         private DataSet workersDS = new DataSet();
 
+        private DatabaseAdapter databaseAdapter = new DatabaseAdapter();
+
 
         public class itemSkill
         {
@@ -48,11 +50,9 @@ namespace Sisir
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            var conn = ConnectToDb();
 
-            var adapter = new NpgsqlDataAdapter("Select * From worker", conn);
-
-            adapter.Fill(workersDS);
+            //workersDS = databaseAdapter.GetDataSet("Select * FROM worker");   
+            workersDS = Worker.GetDataSet();   
 
             //var reader = dataSource.CreateCommand("Select * From 'worker'").ExecuteReader();
 
@@ -60,7 +60,6 @@ namespace Sisir
 
             dataGridView1.Columns[0].DataPropertyName = "name";
             dataGridView1.Columns[1].DataPropertyName = "level";
-            this.dataGridView1.DataSource = dataSource;
 
             //dataGridViewWorkers.Columns[0].DataPropertyName = "name";
             //dataGridViewWorkers.Columns[1].DataPropertyName = "surname";
@@ -90,6 +89,7 @@ namespace Sisir
             dataGridViewWorkers.Columns["pass_who"].DisplayIndex = 8;
             dataGridViewWorkers.Columns["adress_pass"].DisplayIndex = 9;
             dataGridViewWorkers.Columns["adress_fact"].DisplayIndex = 10;
+            dataGridViewWorkers.Columns["id"].Visible = false;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -107,7 +107,6 @@ namespace Sisir
         {
             AddFormOkay();
             AddEditDelButtonsEnable();
-
         }
 
         private void CancelButoonForm_Click(object sender, EventArgs e)
@@ -138,12 +137,68 @@ namespace Sisir
 
         public void AddFormOkay()
         {
-            dataGridViewWorkers.Visible = true;
-            groupBoxAddForm.Visible = false;
+           
+           var isAdded = AddWorker();
+            if (isAdded)
+            {
+                dataGridViewWorkers.Visible = true;
+                groupBoxAddForm.Visible = false;
+
+            }
+            else
+            {
+                MessageBox.Show("Произошла ошибка при добавлении сотрудника в базу данных." +
+                    "Попробуйте еще раз.");
+            }
+
+            UpdateDataSource();
 
             //var wk = new Worker(textBox2.Text, textBox1.Text, textBox3.Text, comboBox3.Text);
             //workerList.Add(wk);
+        }
+
+        private void UpdateDataSource()
+        {
+            workersDS = Worker.UpdateDataSet();
+            var q = workersDS.Tables[0];
+            dataGridViewWorkers.DataSource = q;
             dataGridViewWorkers.Update();
+        }
+
+        private bool AddWorker()
+        {
+            var name = nameTextBox.Text;
+            var surname = surnameTextBox.Text;
+            var patronym = patronymTextBox.Text;
+            var dateBirth = dateBirthDateTimePicker.Value;
+            var passSer = passSerieTextBox.Text;
+            var passNum = passNumtextBox.Text; 
+            var passWho = passWhoTextBox.Text;
+            var passWhen = passDateDateTimePicker.Value;
+            var adressPass = addPasstextBox.Text;
+            var adressFact = addFacttextBox.Text;
+            var job = jobPoscomboBox.Text;
+            var qual = qualLevelcomboBox.Text;
+            var email = emailtextBox.Text;
+            var tg = tgtextBox.Text;
+            var phone = phonetextBox.Text;
+
+            var worker = new Worker(surname, name, passNum, passWhen, patronym, dateBirth, email, tg,
+                phone, passSer, adressPass, adressFact, passWho);
+
+            var validRes = worker.Validate();
+
+            if (validRes.isValid)
+            {
+                worker.Insert();
+                return true;
+            }
+            else
+            {
+                MessageBox.Show(validRes.Message);
+                return false;
+            }
+
         }
 
         public void AddFormCancel()
@@ -181,14 +236,14 @@ namespace Sisir
         {
             var f = OpenSprav<JobPosotionForm>(true);
             var a = f.click;
-            comboBox3.Text = a;
+            jobPoscomboBox.Text = a;
         }
 
         private void QualButtonEtc_Click(object sender, EventArgs e)
         {
             var f = OpenSprav<QualificationForm>(true);
             var a = f.click;
-            comboBox1.Text = a;
+            qualLevelcomboBox.Text = a;
             
         }
 
@@ -223,6 +278,26 @@ namespace Sisir
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
+            if (dataGridViewWorkers.SelectedCells.Count > 0)
+            {
+                var row = dataGridViewWorkers.SelectedCells[0].RowIndex;
+                var column = dataGridViewWorkers.Columns["id"].Index;
+                var _id = dataGridViewWorkers.Rows[row].Cells[column].Value;
+                int id;
+                if (int.TryParse(_id.ToString(), out id))
+                {
+                    id = int.Parse(_id.ToString());
+                    var worker = new Worker(id);
+                    worker.Delete();
+                }
+                else
+                {
+                    MessageBox.Show("Проблема с получением идентификатора сотрудника.");
+                }
+
+                UpdateDataSource();
+
+            }
 
         }
 

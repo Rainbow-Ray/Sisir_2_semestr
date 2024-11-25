@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sisir.Sprav;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace Sisir
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            var a = new Worker(2);
             Application.Run(new MainForm());
         }
     }

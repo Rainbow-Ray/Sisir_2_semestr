@@ -1,10 +1,15 @@
-﻿using System;
+﻿using Npgsql;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Xml.Linq;
+using System.Data;
 
 namespace Sisir.Sprav
 
@@ -38,28 +43,97 @@ namespace Sisir.Sprav
         public string PassWho { get; set; }
         public int Job { get; set; }
         public int QualLevel { get; set; }
+        public int Id { get; set; }
 
-        public Worker(string surname, string name, string patronym,
-            DateTime birthDate, string email, string tg, string phone,
-            string passSerie, string passNum, DateTime passDate, string adressPass,
-            string adressFact, string passWho, int job, int qualLevel
-            )
+        private static DatabaseAdapter databaseAdapter = new DatabaseAdapter();
+
+        private static RegexRules regRules = new RegexRules();
+
+
+
+        //public Worker(string surname, string name, string patronym,
+        //    DateTime birthDate, string email, string tg, string phone,
+        //    string passSerie, string passNum, DateTime passDate, string adressPass,
+        //    string adressFact, string passWho, int job, int qualLevel
+        //    )
+        //{
+        //    Surname = surname;
+        //    Name = name;
+        //    Patronym = patronym;
+        //    BirthDate = birthDate;
+        //    Email = email;
+        //    Tg = tg;
+        //    Phone = phone;
+        //    PassSerie = passSerie;
+        //    PassNum = passNum;
+        //    PassDate = passDate;
+        //    AdressPass = adressPass;
+        //    AdressFact = adressFact;
+        //    PassWho = passWho;
+        //    Job = job;
+        //    QualLevel = qualLevel;
+        //}
+
+        public Worker() { }
+
+        public static DataSet GetDataSet()
         {
-            Surname = surname;
-            Name = name;
-            Patronym = patronym;
-            BirthDate = birthDate;
-            Email = email;
-            Tg = tg;
-            Phone = phone;
-            PassSerie = passSerie;
-            PassNum = passNum;
-            PassDate = passDate;
-            AdressPass = adressPass;
-            AdressFact = adressFact;
-            PassWho = passWho;
-            Job = job;
-            QualLevel = qualLevel;
+            return databaseAdapter.GetDataSet("Select * FROM worker");
+        }
+
+        public Worker(int id) {
+            Id = id;
+            var workerData = Select(id)[0];
+
+            Surname = workerData["surname"];
+            Name = workerData["name"];
+            Patronym = workerData["patronym"];
+            DateTime bday;
+            if (DateTime.TryParse(workerData["birth_date"], out bday))
+            {
+                BirthDate = bday;
+            }
+            else
+            {
+                MessageBox.Show("Произошла ошибка при вынимании Даты рождения из базы данных.");
+            }
+            Email = workerData["email"];
+            Tg = workerData["tg"];
+            Phone = workerData["phone"];
+            PassSerie = workerData["pass_serie"];
+            PassNum = workerData["pass_num"];
+            DateTime pday;
+            if (DateTime.TryParse(workerData["pass_date"], out pday))
+            {
+                PassDate = pday;
+            }
+            else
+            {
+                MessageBox.Show("Произошла ошибка при вынимании Даты выдачи паспорта из базы данных.");
+            }
+            AdressPass = workerData["adress_pass"];
+            AdressFact = workerData["adress_fact"];
+            PassWho = workerData["pass_who"];
+
+            int job;
+            if (int.TryParse(workerData["job_position"], out job))
+            {
+                Job = job;
+            }
+            else
+            {
+                MessageBox.Show("Произошла ошибка при вынимании Должности из базы данных.");
+            }
+
+            int qual;
+            if (int.TryParse(workerData["qual_level"], out qual))
+            {
+                QualLevel = qual;
+            }
+            else
+            {
+                MessageBox.Show("Произошла ошибка при вынимании Уровня квалификации из базы данных.");
+            }
         }
 
         public Worker(string surname, string name, string passNum, DateTime passDate,
@@ -86,6 +160,71 @@ namespace Sisir.Sprav
             QualLevel = qualLevel;
         }
 
+
+        private bool isValidName()
+        {
+            return !(string.IsNullOrEmpty(Name) || !isValid(Name, regRules.lettersOnly));
+        }
+
+        private bool isValidSurname()
+        {
+            return !(string.IsNullOrEmpty(Surname) || !isValid(Surname, regRules.lettersOnly));
+        }
+
+        private bool isValidPatronym()
+        {
+            return !(!string.IsNullOrEmpty(Patronym) && !isValid(Patronym, regRules.lettersOnly));
+        }
+
+        private bool isValidBirthDate()
+        {
+            return !(BirthDate >= DateTime.Now || BirthDate < new DateTime(1700, 01, 01));
+        }
+
+        private bool isValidEmail()
+        {
+            return !(!string.IsNullOrEmpty(Email) && !isValid(Email, regRules.email));
+        }
+
+        private bool isValidTg()
+        {
+            return !(!string.IsNullOrEmpty(Tg) && !isValid(Tg, regRules.tg));
+        }
+
+        private bool isValidPhone()
+        {
+            return !(!string.IsNullOrEmpty(Phone) && !isValid(Phone, regRules.phone));
+        }
+
+        private bool isValidPassSerie()
+        {
+            return !(!string.IsNullOrEmpty(PassSerie) && !isValid(PassSerie, regRules.passSerie));
+        }
+
+        private bool isValidPassNum()
+        {
+            return !(string.IsNullOrEmpty(PassNum) || !isValid(PassNum, regRules.numberOnly));
+        }
+
+        private bool isValidPassDate()
+        {
+            return !(PassDate >= DateTime.Now || BirthDate < new DateTime(1700, 01, 01));
+        }
+
+        private bool isValidAdressPass()
+        {
+            return !(!string.IsNullOrEmpty(AdressPass) && !isValid(AdressPass, regRules.adress));
+        }
+
+        private bool isValidAdressFact()
+        {
+            return !(!string.IsNullOrEmpty(AdressFact) && !isValid(AdressFact, regRules.adress));
+        }
+
+        private bool isValidPassWho()
+        {
+            return !(!string.IsNullOrEmpty(PassWho) && !isValid(PassWho, regRules.adress));
+        }
 
 
         public ValidationResponse Validate()
@@ -164,30 +303,65 @@ namespace Sisir.Sprav
         private bool isValid(string field, Regex regex)
         {
             return regex.IsMatch(field);
+        }
 
+        public static List<Dictionary<string, string>> Select(int id)
+        {
+            var command = "SELECT id, surname, name, patronym, birth_date, email, tg, phone, " +
+                "pass_serie, pass_num, pass_date, adress_pass, adress_fact, qual_level, job_position, pass_who"
+                + $" FROM public.worker WHERE id={id};";
+
+            var workerData = databaseAdapter.ExecuteCommand(command);
+
+            return workerData;
+        }
+
+
+        public static DataSet UpdateDataSet()
+        {
+            var ds = GetDataSet();
+            databaseAdapter.UpdateDataSet(ds.Tables[0], "Select * from worker");
+            return ds;
         }
 
         public void Insert()
         {
-            var command = "INSERT INTO public.worker " +
-                "(surname, name, patronym, birth_date, email, tg, phone," +
-                "pass_serie, pass_num, pass_date, adress_pass, adress_fact)" +
-                "VALUES ('Иванов', 'Иван', 'Иванович', '14-04-1990', 'a@mail.ru', 'ivan', '79224817888'," +
-                "2586, 654253, '25-01-2015', 'Улица Пушкина', 'Дом Колотушкина');";
+            string job = Job == -1 ? "null" : Job.ToString();
+            string qual = QualLevel == -1 ? "null" : QualLevel.ToString();
+            string bday = BirthDate.ToString("yyyy-MM-dd");
+            string pasdate = PassDate.ToString("yyyy-MM-dd");
+
+            var command = $"INSERT INTO public.worker " +
+                $"(surname, name, patronym, birth_date, email, tg, phone," +
+                $"pass_serie, pass_num, pass_date, adress_pass, adress_fact, pass_who, job_position, qual_level)" +
+                $"VALUES ('{Name}', '{Surname}', '{Patronym}', '{bday}', '{Email}', '{Tg}', '{Phone}', " +
+                $"'{PassSerie}', '{PassNum}', '{pasdate}', '{AdressPass}', '{AdressFact}', '{PassWho}', {job}, {qual});";
+            
+            databaseAdapter.ExecuteCommandNoReturn(command);
+
+
         }
 
         public void Update()
         {
             var command = "UPDATE public.worker" +
-                "SET id=?, surname=?, name=?, patronym=?, birth_date=?, email=?, tg=?, phone=?," +
-                "pass_serie=?, pass_num=?, pass_date=?, adress_pass=?, adress_fact=?, qual_level=?," +
-                "job_position=?, pass_who=?" +
-                "WHERE <condition>;";
+                $"SET surname={Surname}, name={Name}, patronym={Patronym}, birth_date={BirthDate}, email={Email}, tg={Tg}, phone={Phone}," +
+                $"pass_serie={PassSerie}, pass_num={PassNum}, pass_date={PassDate}, adress_pass={AdressPass}, adress_fact={AdressFact}," +
+                $"qual_level={QualLevel}, job_position={Job}, pass_who={PassWho}" +
+                $"WHERE id={Id};";
+
+
+            databaseAdapter.ExecuteCommandNoReturn(command);
+
+
         }
 
         public void Delete()
         {
-            var command = "DELETE FROM public.worker WHERE <condition>;";
+
+            var command = $"DELETE FROM public.worker WHERE id={Id};";
+            databaseAdapter.ExecuteCommandNoReturn(command);
+
         }
     }
 
@@ -195,6 +369,8 @@ namespace Sisir.Sprav
     {
         public bool isValid { get; set; } = true;
         public string Message { get; set; } = string.Empty;
+
+        public bool AbortOperation { get; set; }
     }
 
     public class JobPos

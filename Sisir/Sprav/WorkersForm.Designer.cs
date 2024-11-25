@@ -44,37 +44,37 @@
             this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QualButtonEtc = new System.Windows.Forms.Button();
             this.JobTitleButtonEtc = new System.Windows.Forms.Button();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.jobPoscomboBox = new System.Windows.Forms.ComboBox();
+            this.qualLevelcomboBox = new System.Windows.Forms.ComboBox();
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
+            this.dateBirthDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label28 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.passDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.addPasstextBox = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.surnameTextBox = new System.Windows.Forms.TextBox();
+            this.addFacttextBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.passWhoTextBox = new System.Windows.Forms.TextBox();
+            this.patronymTextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.passSerieTextBox = new System.Windows.Forms.TextBox();
+            this.passNumtextBox = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.tgtextBox = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.phonetextBox = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
-            this.textBox21 = new System.Windows.Forms.TextBox();
+            this.emailtextBox = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.CancelButoonForm = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -223,8 +223,8 @@
             this.groupBox4.Controls.Add(this.dataGridView1);
             this.groupBox4.Controls.Add(this.QualButtonEtc);
             this.groupBox4.Controls.Add(this.JobTitleButtonEtc);
-            this.groupBox4.Controls.Add(this.comboBox3);
-            this.groupBox4.Controls.Add(this.comboBox1);
+            this.groupBox4.Controls.Add(this.jobPoscomboBox);
+            this.groupBox4.Controls.Add(this.qualLevelcomboBox);
             this.groupBox4.Controls.Add(this.label30);
             this.groupBox4.Controls.Add(this.label31);
             this.groupBox4.Location = new System.Drawing.Point(20, 200);
@@ -314,21 +314,21 @@
             this.JobTitleButtonEtc.UseVisualStyleBackColor = true;
             this.JobTitleButtonEtc.Click += new System.EventHandler(this.JobTitleButtonEtc_Click);
             // 
-            // comboBox3
+            // jobPoscomboBox
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(13, 41);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(741, 24);
-            this.comboBox3.TabIndex = 23;
+            this.jobPoscomboBox.FormattingEnabled = true;
+            this.jobPoscomboBox.Location = new System.Drawing.Point(13, 41);
+            this.jobPoscomboBox.Name = "jobPoscomboBox";
+            this.jobPoscomboBox.Size = new System.Drawing.Size(741, 24);
+            this.jobPoscomboBox.TabIndex = 23;
             // 
-            // comboBox1
+            // qualLevelcomboBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(13, 90);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(388, 24);
-            this.comboBox1.TabIndex = 21;
+            this.qualLevelcomboBox.FormattingEnabled = true;
+            this.qualLevelcomboBox.Location = new System.Drawing.Point(13, 90);
+            this.qualLevelcomboBox.Name = "qualLevelcomboBox";
+            this.qualLevelcomboBox.Size = new System.Drawing.Size(388, 24);
+            this.qualLevelcomboBox.TabIndex = 21;
             // 
             // label30
             // 
@@ -350,26 +350,26 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.dateTimePicker4);
+            this.groupBox3.Controls.Add(this.dateBirthDateTimePicker);
             this.groupBox3.Controls.Add(this.label28);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.textBox1);
-            this.groupBox3.Controls.Add(this.dateTimePicker1);
-            this.groupBox3.Controls.Add(this.textBox10);
+            this.groupBox3.Controls.Add(this.nameTextBox);
+            this.groupBox3.Controls.Add(this.passDateDateTimePicker);
+            this.groupBox3.Controls.Add(this.addPasstextBox);
             this.groupBox3.Controls.Add(this.label14);
-            this.groupBox3.Controls.Add(this.textBox2);
-            this.groupBox3.Controls.Add(this.textBox11);
+            this.groupBox3.Controls.Add(this.surnameTextBox);
+            this.groupBox3.Controls.Add(this.addFacttextBox);
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.label15);
             this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Controls.Add(this.textBox6);
-            this.groupBox3.Controls.Add(this.textBox3);
+            this.groupBox3.Controls.Add(this.passWhoTextBox);
+            this.groupBox3.Controls.Add(this.patronymTextBox);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.textBox4);
-            this.groupBox3.Controls.Add(this.textBox5);
+            this.groupBox3.Controls.Add(this.passSerieTextBox);
+            this.groupBox3.Controls.Add(this.passNumtextBox);
             this.groupBox3.Location = new System.Drawing.Point(20, 21);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(1296, 173);
@@ -378,13 +378,13 @@
             this.groupBox3.Text = "Паспортные данные";
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
-            // dateTimePicker4
+            // dateBirthDateTimePicker
             // 
-            this.dateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker4.Location = new System.Drawing.Point(687, 39);
-            this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(105, 22);
-            this.dateTimePicker4.TabIndex = 17;
+            this.dateBirthDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateBirthDateTimePicker.Location = new System.Drawing.Point(687, 39);
+            this.dateBirthDateTimePicker.Name = "dateBirthDateTimePicker";
+            this.dateBirthDateTimePicker.Size = new System.Drawing.Size(105, 22);
+            this.dateBirthDateTimePicker.TabIndex = 17;
             // 
             // label28
             // 
@@ -414,28 +414,28 @@
             this.label2.Text = "Имя";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // textBox1
+            // nameTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(231, 39);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(208, 22);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.nameTextBox.Location = new System.Drawing.Point(231, 39);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(208, 22);
+            this.nameTextBox.TabIndex = 3;
+            this.nameTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // dateTimePicker1
+            // passDateDateTimePicker
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(910, 86);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(100, 22);
-            this.dateTimePicker1.TabIndex = 15;
+            this.passDateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.passDateDateTimePicker.Location = new System.Drawing.Point(910, 86);
+            this.passDateDateTimePicker.Name = "passDateDateTimePicker";
+            this.passDateDateTimePicker.Size = new System.Drawing.Size(100, 22);
+            this.passDateDateTimePicker.TabIndex = 15;
             // 
-            // textBox10
+            // addPasstextBox
             // 
-            this.textBox10.Location = new System.Drawing.Point(9, 133);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(507, 22);
-            this.textBox10.TabIndex = 16;
+            this.addPasstextBox.Location = new System.Drawing.Point(9, 133);
+            this.addPasstextBox.Name = "addPasstextBox";
+            this.addPasstextBox.Size = new System.Drawing.Size(507, 22);
+            this.addPasstextBox.TabIndex = 16;
             // 
             // label14
             // 
@@ -447,19 +447,19 @@
             this.label14.Text = "Адрес регистрации";
             this.label14.Click += new System.EventHandler(this.label14_Click);
             // 
-            // textBox2
+            // surnameTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(9, 39);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(216, 22);
-            this.textBox2.TabIndex = 5;
+            this.surnameTextBox.Location = new System.Drawing.Point(9, 39);
+            this.surnameTextBox.Name = "surnameTextBox";
+            this.surnameTextBox.Size = new System.Drawing.Size(216, 22);
+            this.surnameTextBox.TabIndex = 5;
             // 
-            // textBox11
+            // addFacttextBox
             // 
-            this.textBox11.Location = new System.Drawing.Point(522, 133);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(549, 22);
-            this.textBox11.TabIndex = 14;
+            this.addFacttextBox.Location = new System.Drawing.Point(522, 133);
+            this.addFacttextBox.Name = "addFacttextBox";
+            this.addFacttextBox.Size = new System.Drawing.Size(549, 22);
+            this.addFacttextBox.TabIndex = 14;
             // 
             // label8
             // 
@@ -488,19 +488,19 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Отчество";
             // 
-            // textBox6
+            // passWhoTextBox
             // 
-            this.textBox6.Location = new System.Drawing.Point(9, 86);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(895, 22);
-            this.textBox6.TabIndex = 13;
+            this.passWhoTextBox.Location = new System.Drawing.Point(9, 86);
+            this.passWhoTextBox.Name = "passWhoTextBox";
+            this.passWhoTextBox.Size = new System.Drawing.Size(895, 22);
+            this.passWhoTextBox.TabIndex = 13;
             // 
-            // textBox3
+            // patronymTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(445, 39);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(236, 22);
-            this.textBox3.TabIndex = 7;
+            this.patronymTextBox.Location = new System.Drawing.Point(445, 39);
+            this.patronymTextBox.Name = "patronymTextBox";
+            this.patronymTextBox.Size = new System.Drawing.Size(236, 22);
+            this.patronymTextBox.TabIndex = 7;
             // 
             // label7
             // 
@@ -531,30 +531,30 @@
             this.label6.Text = "Номер паспорта";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
-            // textBox4
+            // passSerieTextBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(804, 39);
-            this.textBox4.MaxLength = 4;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 22);
-            this.textBox4.TabIndex = 9;
+            this.passSerieTextBox.Location = new System.Drawing.Point(804, 39);
+            this.passSerieTextBox.MaxLength = 4;
+            this.passSerieTextBox.Name = "passSerieTextBox";
+            this.passSerieTextBox.Size = new System.Drawing.Size(100, 22);
+            this.passSerieTextBox.TabIndex = 9;
             // 
-            // textBox5
+            // passNumtextBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(910, 39);
-            this.textBox5.MaxLength = 6;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(161, 22);
-            this.textBox5.TabIndex = 10;
-            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
+            this.passNumtextBox.Location = new System.Drawing.Point(910, 39);
+            this.passNumtextBox.MaxLength = 6;
+            this.passNumtextBox.Name = "passNumtextBox";
+            this.passNumtextBox.Size = new System.Drawing.Size(161, 22);
+            this.passNumtextBox.TabIndex = 10;
+            this.passNumtextBox.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox19);
+            this.groupBox2.Controls.Add(this.tgtextBox);
             this.groupBox2.Controls.Add(this.label25);
-            this.groupBox2.Controls.Add(this.textBox20);
+            this.groupBox2.Controls.Add(this.phonetextBox);
             this.groupBox2.Controls.Add(this.label26);
-            this.groupBox2.Controls.Add(this.textBox21);
+            this.groupBox2.Controls.Add(this.emailtextBox);
             this.groupBox2.Controls.Add(this.label27);
             this.groupBox2.Location = new System.Drawing.Point(20, 439);
             this.groupBox2.Name = "groupBox2";
@@ -563,13 +563,13 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Контактная информация";
             // 
-            // textBox19
+            // tgtextBox
             // 
-            this.textBox19.Location = new System.Drawing.Point(231, 39);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(208, 22);
-            this.textBox19.TabIndex = 13;
-            this.textBox19.TextChanged += new System.EventHandler(this.textBox19_TextChanged);
+            this.tgtextBox.Location = new System.Drawing.Point(231, 39);
+            this.tgtextBox.Name = "tgtextBox";
+            this.tgtextBox.Size = new System.Drawing.Size(208, 22);
+            this.tgtextBox.TabIndex = 13;
+            this.tgtextBox.TextChanged += new System.EventHandler(this.textBox19_TextChanged);
             // 
             // label25
             // 
@@ -581,12 +581,12 @@
             this.label25.Text = "Ник в Telegram";
             this.label25.Click += new System.EventHandler(this.label25_Click);
             // 
-            // textBox20
+            // phonetextBox
             // 
-            this.textBox20.Location = new System.Drawing.Point(448, 39);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(188, 22);
-            this.textBox20.TabIndex = 11;
+            this.phonetextBox.Location = new System.Drawing.Point(448, 39);
+            this.phonetextBox.Name = "phonetextBox";
+            this.phonetextBox.Size = new System.Drawing.Size(188, 22);
+            this.phonetextBox.TabIndex = 11;
             // 
             // label26
             // 
@@ -597,12 +597,12 @@
             this.label26.TabIndex = 10;
             this.label26.Text = "Номер телефона";
             // 
-            // textBox21
+            // emailtextBox
             // 
-            this.textBox21.Location = new System.Drawing.Point(9, 39);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(216, 22);
-            this.textBox21.TabIndex = 9;
+            this.emailtextBox.Location = new System.Drawing.Point(9, 39);
+            this.emailtextBox.Name = "emailtextBox";
+            this.emailtextBox.Size = new System.Drawing.Size(216, 22);
+            this.emailtextBox.TabIndex = 9;
             // 
             // label27
             // 
@@ -865,40 +865,40 @@
         private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.GroupBox groupBoxAddForm;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox qualLevelcomboBox;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker4;
+        private System.Windows.Forms.DateTimePicker dateBirthDateTimePicker;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox nameTextBox;
+        private System.Windows.Forms.DateTimePicker passDateDateTimePicker;
+        private System.Windows.Forms.TextBox surnameTextBox;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox passWhoTextBox;
+        private System.Windows.Forms.TextBox patronymTextBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox passSerieTextBox;
+        private System.Windows.Forms.TextBox passNumtextBox;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox19;
+        private System.Windows.Forms.TextBox tgtextBox;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.TextBox phonetextBox;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TextBox textBox21;
+        private System.Windows.Forms.TextBox emailtextBox;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox addPasstextBox;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox addFacttextBox;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button CancelButoonForm;
         private System.Windows.Forms.Button OkButtonForm;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox jobPoscomboBox;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem уровниКвалификацииToolStripMenuItem;
