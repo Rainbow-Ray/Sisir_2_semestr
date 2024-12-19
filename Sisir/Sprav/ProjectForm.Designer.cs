@@ -29,35 +29,43 @@
         private void InitializeComponent()
         {
             this.groupBoxAddForm = new System.Windows.Forms.GroupBox();
+            this.infoCloseButton = new System.Windows.Forms.Button();
+            this.idLabel = new System.Windows.Forms.Label();
             this.OkButtonForm = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.finishCheckBox = new System.Windows.Forms.CheckBox();
+            this.startCheckBox = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
+            this.fFDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.fPDateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.sFDateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.sPDateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
+            this.descRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.createdDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label28 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.QualButtonEtc = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.leadComboBox = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.worker_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wp_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pr_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.is_lead = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.worker_surname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.worker_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.worker_patronym = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.job_position = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qual_level = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label9 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -67,22 +75,15 @@
             this.AddButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewWorkers = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateCreated = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sF = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fF = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.moreInfoButton = new System.Windows.Forms.Button();
             this.groupBoxAddForm.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -93,6 +94,8 @@
             // 
             // groupBoxAddForm
             // 
+            this.groupBoxAddForm.Controls.Add(this.infoCloseButton);
+            this.groupBoxAddForm.Controls.Add(this.idLabel);
             this.groupBoxAddForm.Controls.Add(this.OkButtonForm);
             this.groupBoxAddForm.Controls.Add(this.groupBox4);
             this.groupBoxAddForm.Controls.Add(this.groupBox3);
@@ -103,8 +106,26 @@
             this.groupBoxAddForm.Size = new System.Drawing.Size(1050, 568);
             this.groupBoxAddForm.TabIndex = 12;
             this.groupBoxAddForm.TabStop = false;
-            this.groupBoxAddForm.Text = "Форма добавления нового проекта";
             this.groupBoxAddForm.Visible = false;
+            // 
+            // infoCloseButton
+            // 
+            this.infoCloseButton.Location = new System.Drawing.Point(922, 531);
+            this.infoCloseButton.Name = "infoCloseButton";
+            this.infoCloseButton.Size = new System.Drawing.Size(122, 31);
+            this.infoCloseButton.TabIndex = 29;
+            this.infoCloseButton.Text = "Ок";
+            this.infoCloseButton.UseVisualStyleBackColor = true;
+            this.infoCloseButton.Visible = false;
+            this.infoCloseButton.Click += new System.EventHandler(this.infoCancelButton_Click);
+            // 
+            // idLabel
+            // 
+            this.idLabel.AutoSize = true;
+            this.idLabel.Location = new System.Drawing.Point(671, 538);
+            this.idLabel.Name = "idLabel";
+            this.idLabel.Size = new System.Drawing.Size(0, 16);
+            this.idLabel.TabIndex = 28;
             // 
             // OkButtonForm
             // 
@@ -118,22 +139,46 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.finishCheckBox);
+            this.groupBox4.Controls.Add(this.startCheckBox);
             this.groupBox4.Controls.Add(this.label8);
             this.groupBox4.Controls.Add(this.label7);
-            this.groupBox4.Controls.Add(this.dateTimePicker5);
+            this.groupBox4.Controls.Add(this.fFDateTimePicker);
             this.groupBox4.Controls.Add(this.label5);
-            this.groupBox4.Controls.Add(this.dateTimePicker3);
+            this.groupBox4.Controls.Add(this.fPDateTimePicker3);
             this.groupBox4.Controls.Add(this.label4);
-            this.groupBox4.Controls.Add(this.dateTimePicker2);
-            this.groupBox4.Controls.Add(this.dateTimePicker1);
+            this.groupBox4.Controls.Add(this.sFDateTimePicker2);
+            this.groupBox4.Controls.Add(this.sPDateTimePicker1);
             this.groupBox4.Controls.Add(this.label29);
             this.groupBox4.Controls.Add(this.label30);
-            this.groupBox4.Location = new System.Drawing.Point(20, 158);
+            this.groupBox4.Location = new System.Drawing.Point(20, 149);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(1024, 86);
+            this.groupBox4.Size = new System.Drawing.Size(1024, 95);
             this.groupBox4.TabIndex = 26;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Даты";
+            // 
+            // finishCheckBox
+            // 
+            this.finishCheckBox.AutoSize = true;
+            this.finishCheckBox.Location = new System.Drawing.Point(406, 69);
+            this.finishCheckBox.Name = "finishCheckBox";
+            this.finishCheckBox.Size = new System.Drawing.Size(112, 20);
+            this.finishCheckBox.TabIndex = 39;
+            this.finishCheckBox.Text = "Не известна";
+            this.finishCheckBox.UseVisualStyleBackColor = true;
+            this.finishCheckBox.CheckedChanged += new System.EventHandler(this.finishCheckBox_CheckedChanged);
+            // 
+            // startCheckBox
+            // 
+            this.startCheckBox.AutoSize = true;
+            this.startCheckBox.Location = new System.Drawing.Point(278, 69);
+            this.startCheckBox.Name = "startCheckBox";
+            this.startCheckBox.Size = new System.Drawing.Size(112, 20);
+            this.startCheckBox.TabIndex = 38;
+            this.startCheckBox.Text = "Не известна";
+            this.startCheckBox.UseVisualStyleBackColor = true;
+            this.startCheckBox.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // label8
             // 
@@ -153,13 +198,13 @@
             this.label7.TabIndex = 36;
             this.label7.Text = "—";
             // 
-            // dateTimePicker5
+            // fFDateTimePicker
             // 
-            this.dateTimePicker5.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker5.Location = new System.Drawing.Point(406, 41);
-            this.dateTimePicker5.Name = "dateTimePicker5";
-            this.dateTimePicker5.Size = new System.Drawing.Size(100, 22);
-            this.dateTimePicker5.TabIndex = 35;
+            this.fFDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.fFDateTimePicker.Location = new System.Drawing.Point(406, 41);
+            this.fFDateTimePicker.Name = "fFDateTimePicker";
+            this.fFDateTimePicker.Size = new System.Drawing.Size(100, 22);
+            this.fFDateTimePicker.TabIndex = 35;
             // 
             // label5
             // 
@@ -169,13 +214,13 @@
             this.label5.Size = new System.Drawing.Size(0, 16);
             this.label5.TabIndex = 34;
             // 
-            // dateTimePicker3
+            // fPDateTimePicker3
             // 
-            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker3.Location = new System.Drawing.Point(134, 41);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(100, 22);
-            this.dateTimePicker3.TabIndex = 33;
+            this.fPDateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.fPDateTimePicker3.Location = new System.Drawing.Point(134, 41);
+            this.fPDateTimePicker3.Name = "fPDateTimePicker3";
+            this.fPDateTimePicker3.Size = new System.Drawing.Size(100, 22);
+            this.fPDateTimePicker3.TabIndex = 33;
             // 
             // label4
             // 
@@ -185,21 +230,21 @@
             this.label4.Size = new System.Drawing.Size(0, 16);
             this.label4.TabIndex = 32;
             // 
-            // dateTimePicker2
+            // sFDateTimePicker2
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(278, 41);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(100, 22);
-            this.dateTimePicker2.TabIndex = 31;
+            this.sFDateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.sFDateTimePicker2.Location = new System.Drawing.Point(278, 41);
+            this.sFDateTimePicker2.Name = "sFDateTimePicker2";
+            this.sFDateTimePicker2.Size = new System.Drawing.Size(100, 22);
+            this.sFDateTimePicker2.TabIndex = 31;
             // 
-            // dateTimePicker1
+            // sPDateTimePicker1
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(6, 41);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(100, 22);
-            this.dateTimePicker1.TabIndex = 15;
+            this.sPDateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.sPDateTimePicker1.Location = new System.Drawing.Point(6, 41);
+            this.sPDateTimePicker1.Name = "sPDateTimePicker1";
+            this.sPDateTimePicker1.Size = new System.Drawing.Size(100, 22);
+            this.sPDateTimePicker1.TabIndex = 15;
             // 
             // label29
             // 
@@ -222,34 +267,34 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.richTextBox1);
-            this.groupBox3.Controls.Add(this.dateTimePicker4);
+            this.groupBox3.Controls.Add(this.descRichTextBox);
+            this.groupBox3.Controls.Add(this.createdDateTimePicker);
             this.groupBox3.Controls.Add(this.label28);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.nameTextBox);
             this.groupBox3.Location = new System.Drawing.Point(20, 21);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1024, 131);
+            this.groupBox3.Size = new System.Drawing.Size(1024, 122);
             this.groupBox3.TabIndex = 25;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Описание";
             // 
-            // richTextBox1
+            // descRichTextBox
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(406, 42);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(612, 69);
-            this.richTextBox1.TabIndex = 18;
-            this.richTextBox1.Text = "";
+            this.descRichTextBox.Location = new System.Drawing.Point(406, 42);
+            this.descRichTextBox.Name = "descRichTextBox";
+            this.descRichTextBox.Size = new System.Drawing.Size(612, 69);
+            this.descRichTextBox.TabIndex = 18;
+            this.descRichTextBox.Text = "";
             // 
-            // dateTimePicker4
+            // createdDateTimePicker
             // 
-            this.dateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker4.Location = new System.Drawing.Point(6, 89);
-            this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(100, 22);
-            this.dateTimePicker4.TabIndex = 17;
+            this.createdDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.createdDateTimePicker.Location = new System.Drawing.Point(6, 89);
+            this.createdDateTimePicker.Name = "createdDateTimePicker";
+            this.createdDateTimePicker.Size = new System.Drawing.Size(100, 22);
+            this.createdDateTimePicker.TabIndex = 17;
             // 
             // label28
             // 
@@ -278,17 +323,17 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Описание";
             // 
-            // textBox2
+            // nameTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(6, 42);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(394, 22);
-            this.textBox2.TabIndex = 5;
+            this.nameTextBox.Location = new System.Drawing.Point(6, 42);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(394, 22);
+            this.nameTextBox.TabIndex = 5;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.QualButtonEtc);
-            this.groupBox2.Controls.Add(this.comboBox1);
+            this.groupBox2.Controls.Add(this.leadComboBox);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.dataGridView1);
             this.groupBox2.Controls.Add(this.label9);
@@ -311,13 +356,16 @@
             this.QualButtonEtc.UseVisualStyleBackColor = true;
             this.QualButtonEtc.Click += new System.EventHandler(this.QualButtonEtc_Click);
             // 
-            // comboBox1
+            // leadComboBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(8, 37);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(460, 24);
-            this.comboBox1.TabIndex = 33;
+            this.leadComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.leadComboBox.FormattingEnabled = true;
+            this.leadComboBox.Location = new System.Drawing.Point(8, 37);
+            this.leadComboBox.Name = "leadComboBox";
+            this.leadComboBox.Size = new System.Drawing.Size(460, 24);
+            this.leadComboBox.TabIndex = 33;
+            this.leadComboBox.SelectedIndexChanged += new System.EventHandler(this.leadComboBox_SelectedIndexChanged);
+            this.leadComboBox.SelectionChangeCommitted += new System.EventHandler(this.leadComboBox_SelectionChangeCommitted);
             // 
             // label6
             // 
@@ -330,59 +378,118 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.ColumnHeadersHeight = 40;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column17,
-            this.Column18,
-            this.Column19,
-            this.Column21,
-            this.Column20});
+            this.worker_id,
+            this.wp_id,
+            this.pr_id,
+            this.is_lead,
+            this.worker_surname,
+            this.worker_name,
+            this.worker_patronym,
+            this.job_position,
+            this.qual_level});
             this.dataGridView1.Location = new System.Drawing.Point(6, 81);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(974, 178);
             this.dataGridView1.TabIndex = 27;
             // 
-            // Column17
+            // worker_id
             // 
-            this.Column17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column17.FillWeight = 110F;
-            this.Column17.HeaderText = "Фамилия";
-            this.Column17.MinimumWidth = 6;
-            this.Column17.Name = "Column17";
+            this.worker_id.DataPropertyName = "worker_id";
+            this.worker_id.HeaderText = "worker_id";
+            this.worker_id.MinimumWidth = 6;
+            this.worker_id.Name = "worker_id";
+            this.worker_id.ReadOnly = true;
+            this.worker_id.Visible = false;
+            this.worker_id.Width = 125;
             // 
-            // Column18
+            // wp_id
             // 
-            this.Column18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column18.FillWeight = 90F;
-            this.Column18.HeaderText = "Имя";
-            this.Column18.MinimumWidth = 6;
-            this.Column18.Name = "Column18";
+            this.wp_id.DataPropertyName = "id";
+            this.wp_id.HeaderText = "Column1";
+            this.wp_id.MinimumWidth = 6;
+            this.wp_id.Name = "wp_id";
+            this.wp_id.ReadOnly = true;
+            this.wp_id.Visible = false;
+            this.wp_id.Width = 125;
             // 
-            // Column19
+            // pr_id
             // 
-            this.Column19.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column19.HeaderText = "Отчество";
-            this.Column19.MinimumWidth = 6;
-            this.Column19.Name = "Column19";
+            this.pr_id.DataPropertyName = "project_id";
+            this.pr_id.HeaderText = "Column1";
+            this.pr_id.MinimumWidth = 6;
+            this.pr_id.Name = "pr_id";
+            this.pr_id.ReadOnly = true;
+            this.pr_id.Visible = false;
+            this.pr_id.Width = 125;
             // 
-            // Column21
+            // is_lead
             // 
-            this.Column21.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column21.FillWeight = 110F;
-            this.Column21.HeaderText = "Должность";
-            this.Column21.MinimumWidth = 6;
-            this.Column21.Name = "Column21";
+            this.is_lead.DataPropertyName = "is_lead";
+            this.is_lead.HeaderText = "Column1";
+            this.is_lead.MinimumWidth = 6;
+            this.is_lead.Name = "is_lead";
+            this.is_lead.ReadOnly = true;
+            this.is_lead.Visible = false;
+            this.is_lead.Width = 125;
             // 
-            // Column20
+            // worker_surname
             // 
-            this.Column20.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column20.FillWeight = 80F;
-            this.Column20.HeaderText = "Уровень квалификации";
-            this.Column20.MinimumWidth = 6;
-            this.Column20.Name = "Column20";
+            this.worker_surname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.worker_surname.DataPropertyName = "worker_surname";
+            this.worker_surname.FillWeight = 110F;
+            this.worker_surname.HeaderText = "Фамилия";
+            this.worker_surname.MinimumWidth = 6;
+            this.worker_surname.Name = "worker_surname";
+            this.worker_surname.ReadOnly = true;
+            // 
+            // worker_name
+            // 
+            this.worker_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.worker_name.DataPropertyName = "worker_name";
+            this.worker_name.FillWeight = 90F;
+            this.worker_name.HeaderText = "Имя";
+            this.worker_name.MinimumWidth = 6;
+            this.worker_name.Name = "worker_name";
+            this.worker_name.ReadOnly = true;
+            // 
+            // worker_patronym
+            // 
+            this.worker_patronym.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.worker_patronym.DataPropertyName = "worker_patronym";
+            this.worker_patronym.HeaderText = "Отчество";
+            this.worker_patronym.MinimumWidth = 6;
+            this.worker_patronym.Name = "worker_patronym";
+            this.worker_patronym.ReadOnly = true;
+            // 
+            // job_position
+            // 
+            this.job_position.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.job_position.DataPropertyName = "job";
+            this.job_position.FillWeight = 110F;
+            this.job_position.HeaderText = "Должность";
+            this.job_position.MinimumWidth = 6;
+            this.job_position.Name = "job_position";
+            this.job_position.ReadOnly = true;
+            // 
+            // qual_level
+            // 
+            this.qual_level.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.qual_level.DataPropertyName = "qual";
+            this.qual_level.FillWeight = 80F;
+            this.qual_level.HeaderText = "Уровень квалификации";
+            this.qual_level.MinimumWidth = 6;
+            this.qual_level.Name = "qual_level";
+            this.qual_level.ReadOnly = true;
             // 
             // label9
             // 
@@ -411,6 +518,7 @@
             this.button2.TabIndex = 30;
             this.button2.Text = "-";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // CancelButoonForm
             // 
@@ -424,12 +532,12 @@
             // 
             // DeleteButton
             // 
-            this.DeleteButton.Location = new System.Drawing.Point(1068, 175);
+            this.DeleteButton.Location = new System.Drawing.Point(1068, 212);
             this.DeleteButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(163, 31);
             this.DeleteButton.TabIndex = 11;
-            this.DeleteButton.Text = "Удалить запись";
+            this.DeleteButton.Text = "Удалить";
             this.DeleteButton.UseVisualStyleBackColor = true;
             this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
@@ -440,7 +548,7 @@
             this.EditButton.Name = "EditButton";
             this.EditButton.Size = new System.Drawing.Size(163, 31);
             this.EditButton.TabIndex = 10;
-            this.EditButton.Text = "Изменить запись";
+            this.EditButton.Text = "Изменить";
             this.EditButton.UseVisualStyleBackColor = true;
             this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
             // 
@@ -468,25 +576,21 @@
             // 
             // dataGridViewWorkers
             // 
-            this.dataGridViewWorkers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            this.dataGridViewWorkers.ColumnHeadersHeight = 29;
+            this.dataGridViewWorkers.AllowUserToAddRows = false;
+            this.dataGridViewWorkers.AllowUserToDeleteRows = false;
+            this.dataGridViewWorkers.AllowUserToResizeRows = false;
+            this.dataGridViewWorkers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dataGridViewWorkers.ColumnHeadersHeight = 40;
+            this.dataGridViewWorkers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewWorkers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column8,
-            this.Column9,
-            this.Column7,
-            this.Column5,
-            this.Column6,
-            this.Column4,
-            this.Column11,
-            this.Column12,
-            this.Column10,
-            this.Column13,
-            this.Column14,
-            this.Column15,
-            this.Column16});
+            this.id,
+            this.name,
+            this.desc,
+            this.dateCreated,
+            this.sP,
+            this.fP,
+            this.sF,
+            this.fF});
             this.dataGridViewWorkers.Location = new System.Drawing.Point(12, 63);
             this.dataGridViewWorkers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewWorkers.Name = "dataGridViewWorkers";
@@ -496,141 +600,99 @@
             this.dataGridViewWorkers.RowTemplate.Height = 24;
             this.dataGridViewWorkers.Size = new System.Drawing.Size(1050, 557);
             this.dataGridViewWorkers.TabIndex = 7;
+            this.dataGridViewWorkers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewWorkers_CellClick);
             this.dataGridViewWorkers.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewWorkers_CellDoubleClick);
             // 
-            // Column1
+            // id
             // 
-            this.Column1.HeaderText = "Имя";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 62;
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "id";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            this.id.Width = 47;
             // 
-            // Column2
+            // name
             // 
-            this.Column2.HeaderText = "Фамилия";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 95;
+            this.name.DataPropertyName = "name";
+            this.name.HeaderText = "Название";
+            this.name.MinimumWidth = 6;
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            this.name.Width = 102;
             // 
-            // Column3
+            // desc
             // 
-            this.Column3.HeaderText = "Отчество";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 99;
+            this.desc.DataPropertyName = "description";
+            this.desc.HeaderText = "Описание";
+            this.desc.MinimumWidth = 6;
+            this.desc.Name = "desc";
+            this.desc.ReadOnly = true;
+            this.desc.Width = 101;
             // 
-            // Column8
+            // dateCreated
             // 
-            this.Column8.HeaderText = "Должность";
-            this.Column8.MinimumWidth = 6;
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.Width = 107;
+            this.dateCreated.DataPropertyName = "date_created";
+            this.dateCreated.HeaderText = "Дата создания";
+            this.dateCreated.MinimumWidth = 6;
+            this.dateCreated.Name = "dateCreated";
+            this.dateCreated.ReadOnly = true;
+            this.dateCreated.Width = 122;
             // 
-            // Column9
+            // sP
             // 
-            this.Column9.HeaderText = "Уровень квалификации";
-            this.Column9.MinimumWidth = 6;
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            this.Column9.Width = 192;
+            this.sP.DataPropertyName = "date_start_p";
+            this.sP.HeaderText = "Начало План";
+            this.sP.MinimumWidth = 6;
+            this.sP.Name = "sP";
+            this.sP.ReadOnly = true;
+            this.sP.Width = 113;
             // 
-            // Column7
+            // fP
             // 
-            this.Column7.HeaderText = "Отдел";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Width = 77;
+            this.fP.DataPropertyName = "date_finish_p";
+            this.fP.HeaderText = "Конец План";
+            this.fP.MinimumWidth = 6;
+            this.fP.Name = "fP";
+            this.fP.ReadOnly = true;
+            this.fP.Width = 104;
             // 
-            // Column5
+            // sF
             // 
-            this.Column5.HeaderText = "Email";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 70;
+            this.sF.DataPropertyName = "date_start_f";
+            this.sF.HeaderText = "Начало Факт";
+            this.sF.MinimumWidth = 6;
+            this.sF.Name = "sF";
+            this.sF.ReadOnly = true;
+            this.sF.Width = 112;
             // 
-            // Column6
+            // fF
             // 
-            this.Column6.HeaderText = "Ник в Telegram";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 134;
+            this.fF.DataPropertyName = "date_finish_f";
+            this.fF.HeaderText = "Конец Факт";
+            this.fF.MinimumWidth = 6;
+            this.fF.Name = "fF";
+            this.fF.ReadOnly = true;
+            this.fF.Width = 103;
             // 
-            // Column4
+            // moreInfoButton
             // 
-            this.Column4.HeaderText = "Номер телефона";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 148;
-            // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "Номер паспорта";
-            this.Column11.MinimumWidth = 6;
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
-            this.Column11.Width = 144;
-            // 
-            // Column12
-            // 
-            this.Column12.HeaderText = "Серия паспорта";
-            this.Column12.MinimumWidth = 6;
-            this.Column12.Name = "Column12";
-            this.Column12.ReadOnly = true;
-            this.Column12.Width = 141;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "Дата рождения";
-            this.Column10.MinimumWidth = 6;
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            this.Column10.Width = 135;
-            // 
-            // Column13
-            // 
-            this.Column13.HeaderText = "Кем выдан";
-            this.Column13.MinimumWidth = 6;
-            this.Column13.Name = "Column13";
-            this.Column13.ReadOnly = true;
-            this.Column13.Width = 105;
-            // 
-            // Column14
-            // 
-            this.Column14.HeaderText = "Дата выдачи паспорта";
-            this.Column14.MinimumWidth = 6;
-            this.Column14.Name = "Column14";
-            this.Column14.ReadOnly = true;
-            this.Column14.Width = 185;
-            // 
-            // Column15
-            // 
-            this.Column15.HeaderText = "Адрес прописки";
-            this.Column15.MinimumWidth = 6;
-            this.Column15.Name = "Column15";
-            this.Column15.ReadOnly = true;
-            this.Column15.Width = 141;
-            // 
-            // Column16
-            // 
-            this.Column16.HeaderText = "Адрес факт. проживания";
-            this.Column16.MinimumWidth = 6;
-            this.Column16.Name = "Column16";
-            this.Column16.ReadOnly = true;
-            this.Column16.Width = 198;
+            this.moreInfoButton.Location = new System.Drawing.Point(1068, 133);
+            this.moreInfoButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.moreInfoButton.Name = "moreInfoButton";
+            this.moreInfoButton.Size = new System.Drawing.Size(163, 31);
+            this.moreInfoButton.TabIndex = 14;
+            this.moreInfoButton.Text = "Подробнее";
+            this.moreInfoButton.UseVisualStyleBackColor = true;
+            this.moreInfoButton.Click += new System.EventHandler(this.moreInfoButton_Click);
             // 
             // ProjectForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1243, 643);
+            this.Controls.Add(this.moreInfoButton);
             this.Controls.Add(this.groupBoxAddForm);
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.EditButton);
@@ -646,7 +708,9 @@
             this.Controls.SetChildIndex(this.EditButton, 0);
             this.Controls.SetChildIndex(this.DeleteButton, 0);
             this.Controls.SetChildIndex(this.groupBoxAddForm, 0);
+            this.Controls.SetChildIndex(this.moreInfoButton, 0);
             this.groupBoxAddForm.ResumeLayout(false);
+            this.groupBoxAddForm.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -672,12 +736,12 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker4;
+        private System.Windows.Forms.DateTimePicker createdDateTimePicker;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.DateTimePicker sPDateTimePicker1;
+        private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button CancelButoonForm;
         private System.Windows.Forms.Button DeleteButton;
@@ -685,37 +749,38 @@
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridViewWorkers;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.RichTextBox descRichTextBox;
+        private System.Windows.Forms.DateTimePicker sFDateTimePicker2;
+        private System.Windows.Forms.DateTimePicker fPDateTimePicker3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker5;
+        private System.Windows.Forms.DateTimePicker fFDateTimePicker;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button QualButtonEtc;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox leadComboBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column21;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
+        private System.Windows.Forms.Label idLabel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn desc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateCreated;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sF;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fF;
+        private System.Windows.Forms.DataGridViewTextBoxColumn worker_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn wp_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pr_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn is_lead;
+        private System.Windows.Forms.DataGridViewTextBoxColumn worker_surname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn worker_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn worker_patronym;
+        private System.Windows.Forms.DataGridViewTextBoxColumn job_position;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qual_level;
+        private System.Windows.Forms.CheckBox finishCheckBox;
+        private System.Windows.Forms.CheckBox startCheckBox;
+        private System.Windows.Forms.Button moreInfoButton;
+        private System.Windows.Forms.Button infoCloseButton;
     }
 }

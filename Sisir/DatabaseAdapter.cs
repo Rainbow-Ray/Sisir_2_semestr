@@ -2,25 +2,24 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Sisir
 {
-    internal class DatabaseAdapter
+    public class DatabaseAdapter
     {
         public DatabaseAdapter() { }
 
-        private NpgsqlConnection ConnectToDb()
+        NpgsqlConnection conn = null;
+
+        public NpgsqlConnection ConnectToDb()
         {
             try
             {
                 var connectionString = "Host=localhost;Username='postgres';Password='1234';Database=sisir";
                 var dataSource = NpgsqlDataSource.Create(connectionString);
                 var conn = dataSource.OpenConnection();
-
+                this.conn = conn;
                 return conn;
             }
             catch
@@ -37,7 +36,15 @@ namespace Sisir
 
         public List<Dictionary<string, string>> ExecuteCommand(string _command)
         {
-            var conn = ConnectToDb();
+            if (this.conn == null)
+            {
+                var conn = ConnectToDb();
+            }
+            else if (this.conn.State == ConnectionState.Closed)
+            {
+                this.conn.Open();
+            }
+
 
             var command = new NpgsqlCommand(_command, conn);
             var reader = command.ExecuteReader();
@@ -45,7 +52,7 @@ namespace Sisir
             var data = new List<Dictionary<string, string>>();
             while (reader.Read())
             {
-                Console.WriteLine(reader.Rows.ToString()); 
+                Console.WriteLine(reader.Rows.ToString());
                 for (ulong i = 0; i <= reader.Rows; i++)
                 {
                     var dData = new Dictionary<string, string>();
@@ -54,7 +61,6 @@ namespace Sisir
                         dData.Add(reader.GetName(j), reader[j].ToString());
                     }
                     data.Add(dData);
-                    reader.NextResult();
                 }
             }
 
@@ -65,7 +71,14 @@ namespace Sisir
 
         public void ExecuteCommandNoReturn(string _command)
         {
-            var conn = ConnectToDb();
+            if (this.conn == null)
+            {
+                var conn = ConnectToDb();
+            }
+            else if (this.conn.State == ConnectionState.Closed)
+            {
+                this.conn.Open();
+            }
 
             var command = new NpgsqlCommand(_command, conn);
             command.ExecuteNonQuery();
@@ -73,26 +86,47 @@ namespace Sisir
             CloseConnection(conn);
         }
 
-        public DataSet GetDataSet(string command) {
+        public DataSet GetDataSet(string command)
+        {
 
             DataSet ds = new DataSet();
-            var conn = ConnectToDb();
+            if (this.conn == null)
+            {
+                var conn = ConnectToDb();
+            }
+            else if (this.conn.State == ConnectionState.Closed)
+            {
+                this.conn.Open();
+            }
 
-            var adapter = new NpgsqlDataAdapter(command, conn);
-            adapter.Fill(ds);
+            if (conn != null)
+            {
+                var adapter = new NpgsqlDataAdapter(command, conn);
+                adapter.Fill(ds);
+                CloseConnection(conn);
+            }
 
-            CloseConnection(conn);
 
             return ds;
         }
 
         public void UpdateDataSet(DataTable dataTable, string command)
         {
-            var conn = ConnectToDb();
-            NpgsqlDataAdapter npgsqlDataAdapter = new NpgsqlDataAdapter(command, conn);
-            npgsqlDataAdapter.Update(dataTable);
-            CloseConnection(conn);
+            if (this.conn == null)
+            {
+                var conn = ConnectToDb();
+            }
+            else if (this.conn.State == ConnectionState.Closed)
+            {
+                this.conn.Open();
+            }
 
+            if (conn != null)
+            {
+                NpgsqlDataAdapter npgsqlDataAdapter = new NpgsqlDataAdapter(command, conn);
+                npgsqlDataAdapter.Update(dataTable);
+                CloseConnection(conn);
+            }
         }
 
     }

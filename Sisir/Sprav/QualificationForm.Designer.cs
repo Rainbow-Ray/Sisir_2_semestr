@@ -28,20 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.CancelButoonForm = new System.Windows.Forms.Button();
             this.label26 = new System.Windows.Forms.Label();
             this.groupBoxAddForm = new System.Windows.Forms.GroupBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.idLabel = new System.Windows.Forms.Label();
+            this.salaryNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.OkButtonForm = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.EditButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewWorkers = new System.Windows.Forms.DataGridView();
-            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coeff = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,17 +52,17 @@
             this.должностиToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.уровниКвалификацииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBoxAddForm.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salaryNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWorkers)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox20
+            // nameTextBox
             // 
-            this.textBox20.Location = new System.Drawing.Point(5, 42);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(152, 22);
-            this.textBox20.TabIndex = 11;
+            this.nameTextBox.Location = new System.Drawing.Point(5, 42);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(152, 22);
+            this.nameTextBox.TabIndex = 11;
             // 
             // label27
             // 
@@ -93,10 +95,11 @@
             // 
             // groupBoxAddForm
             // 
-            this.groupBoxAddForm.Controls.Add(this.numericUpDown1);
+            this.groupBoxAddForm.Controls.Add(this.idLabel);
+            this.groupBoxAddForm.Controls.Add(this.salaryNumericUpDown);
             this.groupBoxAddForm.Controls.Add(this.OkButtonForm);
             this.groupBoxAddForm.Controls.Add(this.label27);
-            this.groupBoxAddForm.Controls.Add(this.textBox20);
+            this.groupBoxAddForm.Controls.Add(this.nameTextBox);
             this.groupBoxAddForm.Controls.Add(this.label26);
             this.groupBoxAddForm.Controls.Add(this.CancelButoonForm);
             this.groupBoxAddForm.Location = new System.Drawing.Point(17, 70);
@@ -104,26 +107,39 @@
             this.groupBoxAddForm.Size = new System.Drawing.Size(354, 297);
             this.groupBoxAddForm.TabIndex = 12;
             this.groupBoxAddForm.TabStop = false;
-            this.groupBoxAddForm.Text = "Форма добавления нового уровня";
             this.groupBoxAddForm.Visible = false;
             // 
-            // numericUpDown1
+            // idLabel
             // 
-            this.numericUpDown1.DecimalPlaces = 1;
-            this.numericUpDown1.Increment = new decimal(new int[] {
+            this.idLabel.AutoSize = true;
+            this.idLabel.Location = new System.Drawing.Point(6, 116);
+            this.idLabel.Name = "idLabel";
+            this.idLabel.Size = new System.Drawing.Size(0, 16);
+            this.idLabel.TabIndex = 29;
+            this.idLabel.Visible = false;
+            // 
+            // salaryNumericUpDown
+            // 
+            this.salaryNumericUpDown.DecimalPlaces = 1;
+            this.salaryNumericUpDown.Increment = new decimal(new int[] {
             5,
             0,
             0,
             65536});
-            this.numericUpDown1.Location = new System.Drawing.Point(5, 91);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.salaryNumericUpDown.Location = new System.Drawing.Point(5, 91);
+            this.salaryNumericUpDown.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(100, 22);
-            this.numericUpDown1.TabIndex = 28;
+            this.salaryNumericUpDown.Name = "salaryNumericUpDown";
+            this.salaryNumericUpDown.Size = new System.Drawing.Size(100, 22);
+            this.salaryNumericUpDown.TabIndex = 28;
+            this.salaryNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // OkButtonForm
             // 
@@ -143,8 +159,9 @@
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(163, 31);
             this.DeleteButton.TabIndex = 11;
-            this.DeleteButton.Text = "Удалить запись";
+            this.DeleteButton.Text = "Удалить";
             this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // EditButton
             // 
@@ -153,8 +170,9 @@
             this.EditButton.Name = "EditButton";
             this.EditButton.Size = new System.Drawing.Size(163, 31);
             this.EditButton.TabIndex = 10;
-            this.EditButton.Text = "Изменить запись";
+            this.EditButton.Text = "Изменить";
             this.EditButton.UseVisualStyleBackColor = true;
+            this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
             // 
             // AddButton
             // 
@@ -163,7 +181,7 @@
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(163, 31);
             this.AddButton.TabIndex = 9;
-            this.AddButton.Text = "Добавить запись";
+            this.AddButton.Text = "Добавить";
             this.AddButton.UseVisualStyleBackColor = true;
             this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
@@ -180,11 +198,16 @@
             // 
             // dataGridViewWorkers
             // 
-            this.dataGridViewWorkers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dataGridViewWorkers.AllowUserToAddRows = false;
+            this.dataGridViewWorkers.AllowUserToDeleteRows = false;
+            this.dataGridViewWorkers.AllowUserToResizeRows = false;
+            this.dataGridViewWorkers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridViewWorkers.ColumnHeadersHeight = 29;
+            this.dataGridViewWorkers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewWorkers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column15,
-            this.Column16});
+            this.id,
+            this.name,
+            this.coeff});
             this.dataGridViewWorkers.Location = new System.Drawing.Point(17, 70);
             this.dataGridViewWorkers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewWorkers.Name = "dataGridViewWorkers";
@@ -194,23 +217,36 @@
             this.dataGridViewWorkers.RowTemplate.Height = 24;
             this.dataGridViewWorkers.Size = new System.Drawing.Size(607, 389);
             this.dataGridViewWorkers.TabIndex = 7;
+            this.dataGridViewWorkers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewWorkers_CellClick);
             this.dataGridViewWorkers.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewWorkers_CellDoubleClick);
             // 
-            // Column15
+            // id
             // 
-            this.Column15.HeaderText = "Название";
-            this.Column15.MinimumWidth = 6;
-            this.Column15.Name = "Column15";
-            this.Column15.ReadOnly = true;
-            this.Column15.Width = 102;
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "id";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            this.id.Width = 47;
             // 
-            // Column16
+            // name
             // 
-            this.Column16.HeaderText = "Коэффициент прибавки";
-            this.Column16.MinimumWidth = 6;
-            this.Column16.Name = "Column16";
-            this.Column16.ReadOnly = true;
-            this.Column16.Width = 195;
+            this.name.DataPropertyName = "name";
+            this.name.HeaderText = "Название";
+            this.name.MinimumWidth = 6;
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            this.name.Width = 102;
+            // 
+            // coeff
+            // 
+            this.coeff.DataPropertyName = "coeff";
+            this.coeff.HeaderText = "Коэффициент прибавки";
+            this.coeff.MinimumWidth = 6;
+            this.coeff.Name = "coeff";
+            this.coeff.ReadOnly = true;
+            this.coeff.Width = 195;
             // 
             // menuStrip1
             // 
@@ -237,7 +273,6 @@
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
             this.выходToolStripMenuItem.Size = new System.Drawing.Size(136, 26);
             this.выходToolStripMenuItem.Text = "Выход";
-            this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
             // справочникиToolStripMenuItem
             // 
@@ -254,14 +289,12 @@
             this.сотрудникиToolStripMenuItem1.Name = "сотрудникиToolStripMenuItem1";
             this.сотрудникиToolStripMenuItem1.Size = new System.Drawing.Size(250, 26);
             this.сотрудникиToolStripMenuItem1.Text = "Сотрудники";
-            this.сотрудникиToolStripMenuItem1.Click += new System.EventHandler(this.сотрудникиToolStripMenuItem1_Click);
             // 
             // должностиToolStripMenuItem1
             // 
             this.должностиToolStripMenuItem1.Name = "должностиToolStripMenuItem1";
             this.должностиToolStripMenuItem1.Size = new System.Drawing.Size(250, 26);
             this.должностиToolStripMenuItem1.Text = "Должности";
-            this.должностиToolStripMenuItem1.Click += new System.EventHandler(this.должностиToolStripMenuItem1_Click);
             // 
             // уровниКвалификацииToolStripMenuItem
             // 
@@ -294,7 +327,7 @@
             this.Controls.SetChildIndex(this.groupBoxAddForm, 0);
             this.groupBoxAddForm.ResumeLayout(false);
             this.groupBoxAddForm.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salaryNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWorkers)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -305,7 +338,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Button CancelButoonForm;
         private System.Windows.Forms.Label label26;
@@ -316,9 +349,7 @@
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridViewWorkers;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
+        private System.Windows.Forms.NumericUpDown salaryNumericUpDown;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem справочникиToolStripMenuItem;
@@ -326,5 +357,9 @@
         private System.Windows.Forms.ToolStripMenuItem должностиToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem уровниКвалификацииToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn coeff;
+        private System.Windows.Forms.Label idLabel;
     }
 }

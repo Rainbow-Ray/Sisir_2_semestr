@@ -1,21 +1,23 @@
-﻿using System;
+﻿using Npgsql;
+using Sisir.Entity;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Sisir.Sprav;
 
 namespace Sisir
 {
     public partial class QualificationForm : FormWithStripMenu, ISprav
     {
         public Form parentForm { get; set; }
-        public BindingList<QualLevel> items = new BindingList<QualLevel>();
-        public string click;
+
+        private NpgsqlDataSource dataSource;
+        private DataSet levelDS = new DataSet();
+
+
+        private List<Control> textFieldList = new List<Control>();
+
+        public string SelectedLevel;
 
         public QualificationForm(Form parent)
         {
@@ -54,39 +56,29 @@ namespace Sisir
         {
             dataGridViewWorkers.Visible = true;
             groupBoxAddForm.Visible = false;
-
-
         }
 
         public void ShowAddForm()
         {
             dataGridViewWorkers.Visible = false;
             groupBoxAddForm.Visible = true;
+            PrepareAddForm();
         }
 
         private void Qualification_Load(object sender, EventArgs e)
         {
-            if(parentForm != null)
+            if (parentForm != null)
             {
                 this.menuStrip.Visible = false;
                 this.menuStrip.Enabled = false;
-                dataGridViewWorkers.CellDoubleClick += DataGridViewWorkers_CellDoubleClick;
+                dataGridViewWorkers.CellDoubleClick += dataGridViewWorkers_CellDoubleClick;
             }
-            dataGridViewWorkers.Columns[0].DataPropertyName = "Name";
-            dataGridViewWorkers.Columns[1].DataPropertyName = "Coef";
 
-            dataGridViewWorkers.DataSource = items;
-            
-        }
+            var qualDS = QualLevel.GetDataSet();
 
-        private void DataGridViewWorkers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            var a = dataGridViewWorkers.Rows[e.RowIndex].Cells[0].Value;
-            if (a != null)
-            {
-                click = a.ToString();
-            }
-            this.Close();
+            dataGridViewWorkers.DataSource = qualDS.Tables[0];
+            dataGridViewWorkers.Update();
+
         }
 
         private void AddButton_Click(object sender, EventArgs e)
@@ -98,45 +90,64 @@ namespace Sisir
 
         private void OkButtonForm_Click(object sender, EventArgs e)
         {
-            items.Add(new QualLevel(textBox20.Text, (double)numericUpDown1.Value));
-            dataGridViewWorkers.Update();
+            try
+            {
+                var isAdded = false;
+                if (idLabel.Text != "")
+                {
+                    var id = int.Parse(idLabel.Text);
 
-            AddFormOkay();
-            AddEditDelButtonsEnable();
+                    var level = new QualLevel(id);
+                    level.Name = nameTextBox.Text;
+                    level.Coeff = salaryNumericUpDown.Value;
+                    isAdded = level.Update();
+                }
+                else
+                {
+                    var level = new QualLevel(nameTextBox.Text, salaryNumericUpDown.Value);
+
+                    var validRes = level.Validate();
+
+                    if (validRes.isValid)
+                    {
+                        level.Insert();
+                        isAdded = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show(validRes.Message);
+                        isAdded = false;
+                    }
+                }
+
+                UpdateDataSource();
+
+                if (isAdded)
+                {
+                    dataGridViewWorkers.Visible = true;
+                    groupBoxAddForm.Visible = false;
+                    AddFormOkay();
+                    AddEditDelButtonsEnable();
+                }
+                else
+                {
+                    //MessageBox.Show("Произошла ошибка при добавлении уровня в базу данных." +
+                    //    "Попробуйте еще раз.");
+                }
+
+                UpdateDataSource();
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Коэффициент должна быть указана в виде целого числа");
+            }
 
         }
 
         private void CancelButoonForm_Click(object sender, EventArgs e)
         {
             AddFormCancel();
-        }
-
-        private void сотрудникиToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            WorkersForm f = new WorkersForm();
-            f.Show();
-        }
-
-        private void должностиToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void сотрудникиToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            WorkersForm f = new WorkersForm();
-            f.Show();
-
-        }
-
-        private void должностиToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            JobPosotionForm f = new JobPosotionForm();
-            f.Show();
-        }
-
-        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         public void ShowHelperSprav<T>() where T : Form, ISprav, new()
@@ -152,10 +163,23 @@ namespace Sisir
         private void dataGridViewWorkers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
 
+            if (parentForm != null)
+            {
+                var value = CellDoubleClicK(dataGridViewWorkers, e);
+                if (value != "")
+                {
+                    SelectedLevel = value.ToString();
+                    this.Close();
+                }
+            }
+
+
         }
 
         private void QualificationForm_Activated(object sender, EventArgs e)
         {
+
+
             if (parentForm != null)
             {
                 this.menuStrip.Visible = false;
@@ -163,6 +187,88 @@ namespace Sisir
                 dataGridViewWorkers.CellDoubleClick += dataGridViewWorkers_CellDoubleClick;
             }
 
+        }
+
+        public void UpdateDataSource()
+        {
+            levelDS = QualLevel.UpdateDataSet();
+            var q = levelDS.Tables[0];
+            dataGridViewWorkers.DataSource = q;
+            dataGridViewWorkers.Update();
+        }
+
+        private void EditButton_Click(object sender, EventArgs e)
+        {
+            var level = GetLevel();
+
+            if (level != null)
+            {
+                ShowAddForm();
+                FillData(level);
+            }
+            else
+            {
+                MessageBox.Show("Выберите уровень квалификации в таблице уровней " +
+                    " (Кликните один раз по любой ячейке ряда интересующего вас уровня).");
+            }
+
+        }
+
+
+        private QualLevel GetLevel()
+        {
+            if (dataGridViewWorkers.SelectedCells.Count > 0)
+            {
+                var row = dataGridViewWorkers.SelectedCells[0].RowIndex;
+                var column = dataGridViewWorkers.Columns["id"].Index;
+                var _id = dataGridViewWorkers.Rows[row].Cells[column].Value;
+                int id;
+                if (_id != null && int.TryParse(_id.ToString(), out id))
+                {
+                    id = int.Parse(_id.ToString());
+                    var level = new QualLevel(id);
+                    return level;
+                }
+            }
+            return null;
+        }
+
+
+        private void FillData(QualLevel level)
+        {
+            nameTextBox.Text = level.Name;
+            salaryNumericUpDown.Value = (decimal)level.Coeff;
+            idLabel.Text = level.Id.ToString();
+        }
+
+        private void PrepareAddForm()
+        {
+            nameTextBox.Text = string.Empty;
+            salaryNumericUpDown.Value = 1;
+            idLabel.Text = string.Empty;
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            var level = GetLevel();
+
+            if (level != null)
+            {
+                level.Delete();
+            }
+            else
+            {
+                MessageBox.Show("Выберите уровень квалификации в таблице уровней " +
+                    " (Кликните один раз по любой ячейке ряда интересующего вас уровня).");
+            }
+
+            UpdateDataSource();
+
+        }
+
+        private void dataGridViewWorkers_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            SelectRow(dataGridViewWorkers, e);
         }
     }
 }

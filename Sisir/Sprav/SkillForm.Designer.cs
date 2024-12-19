@@ -30,13 +30,15 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.EditButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
             this.groupBoxAddForm = new System.Windows.Forms.GroupBox();
+            this.idLabel = new System.Windows.Forms.Label();
             this.OkButtonForm = new System.Windows.Forms.Button();
-            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.CancelButoonForm = new System.Windows.Forms.Button();
             this.labelBox = new System.Windows.Forms.GroupBox();
@@ -52,9 +54,15 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dataGridView1.ColumnHeadersHeight = 29;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1});
+            this.Column1,
+            this.id});
             this.dataGridView1.Location = new System.Drawing.Point(12, 62);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -72,7 +80,17 @@
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            this.Column1.Width = 125;
+            this.Column1.Width = 78;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "id";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            this.id.Width = 125;
             // 
             // label1
             // 
@@ -92,8 +110,9 @@
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(163, 31);
             this.DeleteButton.TabIndex = 18;
-            this.DeleteButton.Text = "Удалить запись";
+            this.DeleteButton.Text = "Удалить";
             this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // EditButton
             // 
@@ -102,7 +121,7 @@
             this.EditButton.Name = "EditButton";
             this.EditButton.Size = new System.Drawing.Size(163, 31);
             this.EditButton.TabIndex = 17;
-            this.EditButton.Text = "Изменить запись";
+            this.EditButton.Text = "Изменить";
             this.EditButton.UseVisualStyleBackColor = true;
             this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
             // 
@@ -119,8 +138,9 @@
             // 
             // groupBoxAddForm
             // 
+            this.groupBoxAddForm.Controls.Add(this.idLabel);
             this.groupBoxAddForm.Controls.Add(this.OkButtonForm);
-            this.groupBoxAddForm.Controls.Add(this.textBox20);
+            this.groupBoxAddForm.Controls.Add(this.nameTextBox);
             this.groupBoxAddForm.Controls.Add(this.label26);
             this.groupBoxAddForm.Controls.Add(this.CancelButoonForm);
             this.groupBoxAddForm.Location = new System.Drawing.Point(12, 62);
@@ -128,8 +148,16 @@
             this.groupBoxAddForm.Size = new System.Drawing.Size(354, 297);
             this.groupBoxAddForm.TabIndex = 19;
             this.groupBoxAddForm.TabStop = false;
-            this.groupBoxAddForm.Text = "Форма добавления нового навыка";
             this.groupBoxAddForm.Visible = false;
+            // 
+            // idLabel
+            // 
+            this.idLabel.AutoSize = true;
+            this.idLabel.Location = new System.Drawing.Point(18, 79);
+            this.idLabel.Name = "idLabel";
+            this.idLabel.Size = new System.Drawing.Size(0, 16);
+            this.idLabel.TabIndex = 28;
+            this.idLabel.Visible = false;
             // 
             // OkButtonForm
             // 
@@ -142,12 +170,12 @@
             this.OkButtonForm.UseVisualStyleBackColor = true;
             this.OkButtonForm.Click += new System.EventHandler(this.OkButtonForm_Click);
             // 
-            // textBox20
+            // nameTextBox
             // 
-            this.textBox20.Location = new System.Drawing.Point(5, 42);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(152, 22);
-            this.textBox20.TabIndex = 11;
+            this.nameTextBox.Location = new System.Drawing.Point(5, 42);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(152, 22);
+            this.nameTextBox.TabIndex = 11;
             // 
             // label26
             // 
@@ -167,6 +195,7 @@
             this.CancelButoonForm.TabIndex = 22;
             this.CancelButoonForm.Text = "Отмена";
             this.CancelButoonForm.UseVisualStyleBackColor = true;
+            this.CancelButoonForm.Click += new System.EventHandler(this.CancelButoonForm_Click);
             // 
             // labelBox
             // 
@@ -210,6 +239,7 @@
             this.levelCancel.TabIndex = 2;
             this.levelCancel.Text = "X";
             this.levelCancel.UseVisualStyleBackColor = true;
+            this.levelCancel.Click += new System.EventHandler(this.levelCancel_Click);
             // 
             // leveltextBox
             // 
@@ -240,7 +270,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "SkillForm";
-            this.Text = "Справочник уровней";
+            this.Text = "Справочник навыков";
             this.Activated += new System.EventHandler(this.SkillForm_Activated);
             this.Load += new System.EventHandler(this.Skill_Load);
             this.ParentChanged += new System.EventHandler(this.SkillForm_ParentChanged);
@@ -270,7 +300,7 @@
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.GroupBox groupBoxAddForm;
         private System.Windows.Forms.Button OkButtonForm;
-        private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Button CancelButoonForm;
         private System.Windows.Forms.GroupBox labelBox;
@@ -279,6 +309,8 @@
         private System.Windows.Forms.Button levelCancel;
         private System.Windows.Forms.Button levelOkButton;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label idLabel;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
     }
 }

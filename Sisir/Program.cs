@@ -1,8 +1,4 @@
-﻿using Sisir.Sprav;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
 
 namespace Sisir
@@ -13,12 +9,21 @@ namespace Sisir
         /// Главная точка входа для приложения.
         /// </summary>
         [STAThread]
+
+
+
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            var a = new Worker(2);
-            Application.Run(new MainForm());
+
+            var db = new DatabaseAdapter();
+            var conn = db.ConnectToDb();
+
+            if (conn != null)
+            {
+                Application.Run(new MainForm(db));
+            }
         }
     }
 }

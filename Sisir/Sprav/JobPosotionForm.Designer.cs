@@ -34,15 +34,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.OkButtonForm = new System.Windows.Forms.Button();
             this.groupBoxAddForm = new System.Windows.Forms.GroupBox();
+            this.idLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.zpTextBox = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
-            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.jobNameTextBox = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.CancelButoonForm = new System.Windows.Forms.Button();
             this.dataGridViewWorkers = new System.Windows.Forms.DataGridView();
-            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.salary = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,8 +64,9 @@
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(163, 31);
             this.DeleteButton.TabIndex = 17;
-            this.DeleteButton.Text = "Удалить запись";
+            this.DeleteButton.Text = "Удалить";
             this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // EditButton
             // 
@@ -72,8 +75,9 @@
             this.EditButton.Name = "EditButton";
             this.EditButton.Size = new System.Drawing.Size(163, 31);
             this.EditButton.TabIndex = 16;
-            this.EditButton.Text = "Изменить запись";
+            this.EditButton.Text = "Изменить";
             this.EditButton.UseVisualStyleBackColor = true;
+            this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
             // 
             // AddButton
             // 
@@ -82,7 +86,7 @@
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(163, 31);
             this.AddButton.TabIndex = 15;
-            this.AddButton.Text = "Добавить запись";
+            this.AddButton.Text = "Добавить";
             this.AddButton.UseVisualStyleBackColor = true;
             this.AddButton.Click += new System.EventHandler(this.AddButton_Click_1);
             // 
@@ -110,11 +114,12 @@
             // 
             // groupBoxAddForm
             // 
+            this.groupBoxAddForm.Controls.Add(this.idLabel);
             this.groupBoxAddForm.Controls.Add(this.label2);
-            this.groupBoxAddForm.Controls.Add(this.textBox1);
+            this.groupBoxAddForm.Controls.Add(this.zpTextBox);
             this.groupBoxAddForm.Controls.Add(this.OkButtonForm);
             this.groupBoxAddForm.Controls.Add(this.label27);
-            this.groupBoxAddForm.Controls.Add(this.textBox20);
+            this.groupBoxAddForm.Controls.Add(this.jobNameTextBox);
             this.groupBoxAddForm.Controls.Add(this.label26);
             this.groupBoxAddForm.Controls.Add(this.CancelButoonForm);
             this.groupBoxAddForm.Location = new System.Drawing.Point(17, 70);
@@ -125,6 +130,15 @@
             this.groupBoxAddForm.Text = "Форма добавления новой должности";
             this.groupBoxAddForm.Visible = false;
             // 
+            // idLabel
+            // 
+            this.idLabel.AutoSize = true;
+            this.idLabel.Location = new System.Drawing.Point(6, 119);
+            this.idLabel.Name = "idLabel";
+            this.idLabel.Size = new System.Drawing.Size(0, 16);
+            this.idLabel.TabIndex = 30;
+            this.idLabel.Visible = false;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -134,12 +148,12 @@
             this.label2.TabIndex = 29;
             this.label2.Text = "руб.";
             // 
-            // textBox1
+            // zpTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(5, 89);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(167, 22);
-            this.textBox1.TabIndex = 28;
+            this.zpTextBox.Location = new System.Drawing.Point(5, 89);
+            this.zpTextBox.Name = "zpTextBox";
+            this.zpTextBox.Size = new System.Drawing.Size(167, 22);
+            this.zpTextBox.TabIndex = 28;
             // 
             // label27
             // 
@@ -150,12 +164,12 @@
             this.label27.TabIndex = 8;
             this.label27.Text = "Заработная плата";
             // 
-            // textBox20
+            // jobNameTextBox
             // 
-            this.textBox20.Location = new System.Drawing.Point(5, 40);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(484, 22);
-            this.textBox20.TabIndex = 11;
+            this.jobNameTextBox.Location = new System.Drawing.Point(5, 40);
+            this.jobNameTextBox.Name = "jobNameTextBox";
+            this.jobNameTextBox.Size = new System.Drawing.Size(484, 22);
+            this.jobNameTextBox.TabIndex = 11;
             // 
             // label26
             // 
@@ -179,11 +193,15 @@
             // 
             // dataGridViewWorkers
             // 
-            this.dataGridViewWorkers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dataGridViewWorkers.AllowUserToAddRows = false;
+            this.dataGridViewWorkers.AllowUserToResizeRows = false;
+            this.dataGridViewWorkers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridViewWorkers.ColumnHeadersHeight = 29;
+            this.dataGridViewWorkers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewWorkers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column15,
-            this.Column16});
+            this.id,
+            this.name,
+            this.salary});
             this.dataGridViewWorkers.Location = new System.Drawing.Point(17, 70);
             this.dataGridViewWorkers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewWorkers.Name = "dataGridViewWorkers";
@@ -193,23 +211,35 @@
             this.dataGridViewWorkers.RowTemplate.Height = 24;
             this.dataGridViewWorkers.Size = new System.Drawing.Size(607, 389);
             this.dataGridViewWorkers.TabIndex = 13;
+            this.dataGridViewWorkers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewWorkers_CellClick);
             this.dataGridViewWorkers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewWorkers_CellContentClick);
-            this.dataGridViewWorkers.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewWorkers_CellDoubleClick_1);
             // 
-            // Column15
+            // id
             // 
-            this.Column15.HeaderText = "Название";
-            this.Column15.MinimumWidth = 6;
-            this.Column15.Name = "Column15";
-            this.Column15.ReadOnly = true;
-            this.Column15.Width = 102;
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "id";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            this.id.Width = 47;
             // 
-            // Column16
+            // name
             // 
-            this.Column16.HeaderText = "Зарплата";
-            this.Column16.MinimumWidth = 6;
-            this.Column16.Name = "Column16";
-            this.Column16.ReadOnly = true;
+            this.name.DataPropertyName = "name";
+            this.name.HeaderText = "Название";
+            this.name.MinimumWidth = 6;
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            this.name.Width = 102;
+            // 
+            // salary
+            // 
+            this.salary.DataPropertyName = "salary";
+            this.salary.HeaderText = "Зарплата";
+            this.salary.MinimumWidth = 6;
+            this.salary.Name = "salary";
+            this.salary.ReadOnly = true;
             // 
             // menuStrip1
             // 
@@ -307,20 +337,22 @@
         private System.Windows.Forms.Button OkButtonForm;
         private System.Windows.Forms.GroupBox groupBoxAddForm;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.TextBox jobNameTextBox;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Button CancelButoonForm;
         private System.Windows.Forms.DataGridView dataGridViewWorkers;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox zpTextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem справочникиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сотрудникиToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem должностиToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem уровниКвалификацииToolStripMenuItem;
+        private System.Windows.Forms.Label idLabel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn salary;
     }
 }
